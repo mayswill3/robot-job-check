@@ -33,7 +33,11 @@ const M = { top: 28, right: 12, bottom: 34, left: 12 };
 export function Beeswarm({ all, selected, thresholds, onPick }: Props) {
   const { ref, width } = useMeasure<HTMLDivElement>();
   const reduced = useReducedMotion();
-  const [tip, setTip] = useState<Node | null>(null);
+  // `pinned` is the dot the reader clicked and stays until they click another; `hover`
+  // is the dot under the mouse and clears when the pointer leaves the chart.
+  const [pinned, setPinned] = useState<Node | null>(null);
+  const [hover, setHover] = useState<Node | null>(null);
+  const tip = hover ?? pinned;
   // Dots are laid out on the client only: the force layout depends on the measured
   // width, and 408 SVG circles would bloat the HTML for no first-paint benefit.
   const [mounted, setMounted] = useState(false);
@@ -98,14 +102,14 @@ export function Beeswarm({ all, selected, thresholds, onPick }: Props) {
         role="img"
         aria-label={summary}
         onPointerMove={(e) => {
-          if (e.pointerType === "mouse") setTip(nearest(e));
+          if (e.pointerType === "mouse") setHover(nearest(e));
         }}
         onPointerLeave={(e) => {
-          if (e.pointerType === "mouse") setTip(null);
+          if (e.pointerType === "mouse") setHover(null);
         }}
         onClick={(e) => {
           const n = nearest(e);
-          if (n) setTip(n);
+          if (n) setPinned(n);
         }}
       >
         {bands.map((b) => (
@@ -137,11 +141,7 @@ export function Beeswarm({ all, selected, thresholds, onPick }: Props) {
               cy={n.y}
               r={n.r}
               className={`${styles.dot} ${styles[`dot_${n.verdict}`]} ${tip?.soc === n.soc ? styles.hit : ""} ${n.soc === selected.soc ? styles.me : ""}`}
-            >
-              <title>
-                {n.title}: {Math.round(n.score)}/100, {formatPeople(n.employment)} people
-              </title>
-            </circle>
+            />
           ))}
         </g>
         {me ? (
@@ -166,7 +166,14 @@ export function Beeswarm({ all, selected, thresholds, onPick }: Props) {
             {show.soc !== selected.soc && onPick ? (
               <>
                 {" "}
-                <button type="button" className={styles.tipBtn} onClick={() => onPick(show.soc)}>
+                <button
+                  type="button"
+                  className={styles.tipBtn}
+                  onClick={() => {
+                    setPinned(null);
+                    onPick(show.soc);
+                  }}
+                >
                   Make this my job
                 </button>
               </>
