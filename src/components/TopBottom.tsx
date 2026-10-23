@@ -12,7 +12,7 @@ function ordinal(n: number): string {
   return `${n}${s[(v - 20) % 10] ?? s[v] ?? s[0]}`;
 }
 
-export function TopBottom({ all, selected }: { all: SlimOccupation[]; selected: SlimOccupation }) {
+export function TopBottom({ all, selected, selectedLabel }: { all: SlimOccupation[]; selected: SlimOccupation; selectedLabel?: string }) {
   const [mode, setMode] = useState<ListMode>("risk");
   const rows = topList(all, mode, 10, selected.soc);
   return (
@@ -30,7 +30,7 @@ export function TopBottom({ all, selected }: { all: SlimOccupation[]; selected: 
         ariaLabel={mode === "risk" ? "Ten most exposed jobs in Britain" : "Ten safest jobs in Britain"}
         data={rows.map((r) => ({
           id: r.occ.soc,
-          label: r.occ.title,
+          label: r.isReader && selectedLabel ? selectedLabel : r.occ.title,
           prefix: `${r.position}.`,
           sub: `${formatPeople(r.occ.employment)} people`,
           value: r.occ.score,

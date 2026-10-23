@@ -21,10 +21,12 @@ interface Props {
   max?: number;
   ariaLabel: string;
   valueSuffix?: string;
+  /** Put the sub label after the name instead of under the bar (saves a line per row). */
+  subInline?: boolean;
 }
 
 /** Horizontal bars as an HTML/CSS chart with a d3 linear scale: accessible as a list, animates in on scroll. */
-export function BarChart({ data, max = 100, ariaLabel, valueSuffix = "" }: Props) {
+export function BarChart({ data, max = 100, ariaLabel, valueSuffix = "", subInline = false }: Props) {
   const { ref, inView } = useInView<HTMLOListElement>();
   const reduced = useReducedMotion();
   const x = scaleLinear().domain([0, max]).range([0, 100]);
@@ -37,6 +39,7 @@ export function BarChart({ data, max = 100, ariaLabel, valueSuffix = "" }: Props
               {d.prefix ? <span className={styles.prefix}>{d.prefix}</span> : null}
               {d.label}
               {d.highlight ? <span className={styles.you}> ← you</span> : null}
+              {subInline && d.sub ? <span className={styles.subInline}> {d.sub}</span> : null}
             </span>
             <span className={`num ${styles.value} ${styles[`ink_${d.verdict}`]}`}>
               {Math.round(d.value)}
@@ -52,7 +55,7 @@ export function BarChart({ data, max = 100, ariaLabel, valueSuffix = "" }: Props
               }}
             />
           </div>
-          {d.sub ? <span className={styles.sub}>{d.sub}</span> : null}
+          {d.sub && !subInline ? <span className={styles.sub}>{d.sub}</span> : null}
         </li>
       ))}
     </ol>

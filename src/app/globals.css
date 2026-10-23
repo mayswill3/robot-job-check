@@ -14,7 +14,7 @@
   --safe: #1e8e4e;
   --safe-ink: #0d5a2f;
   --watch: #f0b400;
-  --watch-ink: #6d5200;
+  --watch-ink: #8a6500;
   --risk: #d6001c;
   --risk-ink: #a30015;
   --dot-safe: #2fa866;
@@ -180,8 +180,42 @@ button {
   }
 }
 
+/* Copy beside a chart (timeline + pull quote). Stacked on phones, side by side on desktop. */
+.split > .aside {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 2px solid var(--rule);
+}
+.split > .aside p {
+  margin: 0 0 12px;
+}
+.split > .aside p:last-child {
+  margin-bottom: 0;
+}
+
 /* Desktop: widen the page and let sections sit side by side. */
 @media (min-width: 900px) {
+  .split {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .split > .aside {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+    padding-left: 36px;
+    border-left: 4px solid var(--rule);
+  }
+  .cols2 {
+    columns: 2;
+    column-gap: 48px;
+  }
+  .cols2 > p {
+    break-inside: avoid;
+    max-width: none;
+  }
   :root {
     --measure: 1040px;
     --gutter: 32px;

@@ -6,6 +6,7 @@ export function BankRoles({ roles, selected }: { roles: BankRole[]; selected: Sl
   return (
     <BarChart
       ariaLabel="Bank jobs ranked by AI exposure score"
+      subInline
       data={roles.map((r) => ({
         id: r.soc2020 + r.role,
         label: r.role,

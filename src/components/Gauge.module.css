@@ -18,7 +18,7 @@
 .tick {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 14px;
+  font-size: 20px;
   fill: var(--fg);
 }
 .needle polygon,

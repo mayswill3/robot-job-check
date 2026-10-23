@@ -11,7 +11,7 @@ import type {
 } from "@/lib/types";
 import { Section } from "./Section";
 import { Lede, Opening, PullQuote } from "./Prose";
-import { formatPeople } from "@/lib/format";
+import { displayLabel, formatPeople } from "@/lib/format";
 import { JobChecker } from "./JobChecker";
 import { Timeline } from "./Timeline";
 import { BankRoles } from "./BankRoles";
@@ -95,7 +95,7 @@ export function Story({
     async (soc: string) => {
       const o = await fetchOcc(soc);
       if (!o) return;
-      onSelect(o, o.title);
+      onSelect(o, displayLabel(o));
       document.getElementById("checker")?.scrollIntoView({ behavior: "smooth", block: "start" });
     },
     [fetchOcc, onSelect],
@@ -108,7 +108,7 @@ export function Story({
     let cancelled = false;
     fetchOcc(soc).then((o) => {
       if (!o || cancelled) return;
-      setSel({ occ: o, label: o.title, picked: true });
+      setSel({ occ: o, label: displayLabel(o), picked: true });
       document.getElementById("checker")?.scrollIntoView({ block: "start" });
     });
     return () => {
@@ -177,7 +177,7 @@ export function Story({
           </p>
         }
         outro={
-          <>
+          <div className="cols2">
             <p>
               <strong>How to read it.</strong> Zero means AI can do none of what
               you do. A hundred means it overlaps with nearly all of it. We split
@@ -189,7 +189,7 @@ export function Story({
               nobody expects them to vanish. It means a big chunk of the day job
               could soon be done by, or with, a machine.
             </p>
-          </>
+          </div>
         }
       >
         <JobChecker
@@ -218,8 +218,10 @@ export function Story({
             quietly in the first half of this year. Then came the results call.
           </p>
         }
-        outro={
-          <>
+      >
+        <div className="split">
+          <Timeline items={timeline} />
+          <div className="aside">
             <PullQuote cite={ceo?.source ?? "Barclays results call"}>
               {ceo?.display.replace(/^"|"$/g, "")}
             </PullQuote>
@@ -229,10 +231,8 @@ export function Story({
               &ldquo;investments which we&rsquo;ve made in technology over a
               number of years&rdquo;.
             </p>
-          </>
-        }
-      >
-        <Timeline items={timeline} />
+          </div>
+        </div>
       </Section>
 
       <div className="two-up">
@@ -286,7 +286,7 @@ export function Story({
             </p>
           }
         >
-          <TopBottom all={all} selected={slimSelected} />
+          <TopBottom all={all} selected={slimSelected} selectedLabel={sel.label} />
         </Section>
       </div>
 
@@ -374,7 +374,7 @@ export function Story({
         kicker="What happens next"
         title="The rest go by Christmas"
         intro={
-          <>
+          <div className="cols2">
             <p>
               The remainder of the {cuts?.display} roles go before the year is
               out, with {f("savings_2027")} of savings pencilled in for 2027.
@@ -387,7 +387,7 @@ export function Story({
               <a href="#checker">Check it again</a>, and send it to the mate who
               reckons they are safe.
             </p>
-          </>
+          </div>
         }
       >
         <></>

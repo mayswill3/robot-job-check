@@ -13,7 +13,6 @@ const POPULAR = [
   { label: "Bank clerk", soc: "4123" },
   { label: "Call centre", soc: "7211" },
   { label: "Plumber", soc: "5315" },
-  { label: "Accountant", soc: "2421" },
   { label: "Lorry driver", soc: "8211" },
   { label: "Software developer", soc: "2134" },
   { label: "Hairdresser", soc: "6221" },

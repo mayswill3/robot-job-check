@@ -78,3 +78,8 @@
   font-size: 13px;
   color: var(--muted);
 }
+.subInline {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}

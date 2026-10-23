@@ -77,9 +77,11 @@ export function ResultCard({ occ, label, isExample, all, thresholds, employmentP
         <div className={styles.gaugeRow}>
           <Gauge score={occ.score} thresholds={thresholds} verdict={v.key} />
         </div>
-        <h3 className={`${styles.verdict} ${styles[`ink_${v.key}`]}`}>
-          <span aria-hidden="true">{v.mark} </span>
-          {v.label}
+        <h3 className={styles.verdict}>
+          <span className={`hl ${styles.hl} ${styles[`hl_${v.key}`]}`}>
+            <span aria-hidden="true">{v.mark} </span>
+            {v.label}
+          </span>
         </h3>
         <p className={styles.line}>{v.line}</p>
       </div>

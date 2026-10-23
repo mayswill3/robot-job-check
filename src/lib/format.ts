@@ -5,6 +5,12 @@ export function formatPeople(n: number | null | undefined): string {
   return new Intl.NumberFormat("en-GB").format(Math.round(n / 100) * 100);
 }
 
+/** The friendliest name we have for a job: its curated priority alias ("Nurse"), else the ONS title. */
+export function displayLabel(o: { title: string; priorityAliases?: string[] }): string {
+  const a = o.priorityAliases?.[0];
+  return a ? a[0].toUpperCase() + a.slice(1) : o.title;
+}
+
 export function formatInt(n: number): string {
   return new Intl.NumberFormat("en-GB").format(n);
 }

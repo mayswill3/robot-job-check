@@ -33,6 +33,11 @@
   border-bottom: 2px solid var(--rule);
   padding: 12px 0;
 }
+.numbers > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 .numbers div + div {
   border-left: 2px solid var(--rule);
   padding-left: 8px;
@@ -44,7 +49,6 @@
   color: var(--muted);
   font-weight: 600;
   line-height: 1.2;
-  min-height: 2.4em;
 }
 .numbers dd {
   margin: 4px 0 0;

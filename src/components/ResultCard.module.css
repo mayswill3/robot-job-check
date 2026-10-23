@@ -40,9 +40,29 @@
   margin: 8px auto 0;
 }
 .verdict {
-  font-size: clamp(36px, 10vw, 52px);
+  font-size: clamp(34px, 9.5vw, 50px);
   text-align: center;
-  margin-top: 4px;
+  margin: 16px 0 0;
+  line-height: 1.05;
+}
+/* Tabloid highlighter: the words sit on a bar of the verdict colour, not in it. */
+.hl {
+  display: inline;
+  padding: 0.04em 0.18em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.hl_safe {
+  background: var(--safe);
+  color: #fff;
+}
+.hl_watch {
+  background: var(--watch);
+  color: #111;
+}
+.hl_risk {
+  background: var(--risk);
+  color: #fff;
 }
 .ink_safe {
   color: var(--safe-ink);
