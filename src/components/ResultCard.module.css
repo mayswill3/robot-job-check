@@ -119,3 +119,31 @@
   font-size: 14px;
   color: var(--muted);
 }
+
+@media (min-width: 900px) {
+  .card {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    column-gap: 36px;
+    padding: 20px 24px 24px;
+  }
+  .left {
+    border-right: 2px solid var(--rule);
+    padding-right: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .gaugeRow {
+    max-width: 340px;
+  }
+  .verdict {
+    font-size: 40px;
+  }
+  .line {
+    margin-bottom: 0;
+  }
+  .stats {
+    margin-top: 0;
+  }
+}
