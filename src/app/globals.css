@@ -189,15 +189,32 @@ button {
   body {
     font-size: 18px;
   }
+  /* Two sections side by side on the same 1040px measure as everything else.
+     Outer columns absorb the viewport, inner two hold the content. */
   .two-up {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
+    grid-template-columns:
+      minmax(var(--gutter), 1fr)
+      repeat(2, minmax(0, calc((var(--measure) - 2 * var(--gutter)) / 2)))
+      minmax(var(--gutter), 1fr);
+    align-items: stretch;
+    border-top: 4px solid var(--rule);
   }
   .two-up > section {
     min-width: 0;
+    border-top: 0;
+  }
+  .two-up > section:first-child {
+    grid-column: 2;
+    padding-right: 36px;
   }
   .two-up > section + section {
+    grid-column: 3;
     border-left: 4px solid var(--rule);
+    padding-left: 36px;
+  }
+  .two-up .container {
+    max-width: none;
+    padding-inline: 0;
   }
 }
