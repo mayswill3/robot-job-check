@@ -8,12 +8,12 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? "github" : "list",
   use: {
-    baseURL: `http://localhost:${PORT}`,
+    baseURL: process.env.E2E_BASE_URL ?? `http://localhost:${PORT}`,
     trace: "retain-on-failure",
   },
   projects: [{ name: "mobile-chromium", use: { ...devices["Pixel 7"] } }],
   // Run `npm run build` first; this only starts the production server.
-  webServer: {
+  webServer: process.env.E2E_BASE_URL ? undefined : {
     command: `npx next start -p ${PORT}`,
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
