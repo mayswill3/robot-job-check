@@ -47,10 +47,10 @@
 }
 /* Tabloid highlighter: the words sit on a bar of the verdict colour, not in it. */
 .hl {
-  display: inline;
-  padding: 0.04em 0.18em;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+  display: inline-block;
+  padding: 0.06em 0.22em 0.04em;
+  line-height: 1;
+  max-width: 100%;
 }
 .hl_safe {
   background: var(--safe);
