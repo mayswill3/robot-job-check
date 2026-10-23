@@ -73,7 +73,7 @@ weight(2010 -> 2020) = census_base_2010 x share_to_2020
 score(2020)          = sum(weight x score_2010) / sum(weight)
 ```
 
-Each occupation records how it was mapped (`mapping.type`): 235 one-to-one, 99 split (one 2010
+Each occupation records how it was mapped (`mapping.type`): 235 one-to-one (including the 4 unscored groups), 99 split (one 2010
 group divided into several 2020 groups, which therefore share a score), 78 merged (several 2010
 groups blended). `mapping.coverage` is the share of inflow weight that carried a score.
 
