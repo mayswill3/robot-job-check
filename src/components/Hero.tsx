@@ -18,7 +18,7 @@ export function Hero({ cuts, share, headcount, announced }: Props) {
         <div className={styles.grid}>
           <h1 className={styles.headline}>
             Will a robot
-            <br />
+            <br />{" "}
             take <span className={styles.red}>your</span> job?
           </h1>
           <div>
