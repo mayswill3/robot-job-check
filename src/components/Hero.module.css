@@ -70,6 +70,9 @@
   .headline {
     font-size: clamp(72px, 7.4vw, 104px);
   }
+  .headline br {
+    display: none;
+  }
   .standfirst {
     font-size: 22px;
     max-width: none;
