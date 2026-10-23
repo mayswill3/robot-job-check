@@ -63,11 +63,11 @@ export function Story({ example, all, thresholds, employmentPeriod, popular, ban
 
   return (
     <>
-      <Section id="checker" kicker="Job checker" title="Check your job" intro={<p>Type what you do. Slang works: brickie, sparky, postie, dinner lady.</p>}>
+      <Section id="checker" kicker="Job checker" title="Check your job" intro={<p>Type what you do. Slang works.</p>}>
         <JobChecker example={example} all={all} thresholds={thresholds} employmentPeriod={employmentPeriod} popular={popular} selected={selected} onSelect={onSelect} />
       </Section>
 
-      <Section id="barclays" kicker="The story so far" title="What Barclays said" tone="tint" intro={<p>Three years, two rounds of cuts, one bank. How {cuts?.display} jobs came to be on the line, in six stops.</p>}>
+      <Section id="barclays" kicker="The story so far" title="What Barclays said" tone="tint" intro={<p>How {cuts?.display} jobs ended up on the line.</p>}>
         <Timeline items={timeline} />
       </Section>
 
@@ -75,17 +75,12 @@ export function Story({ example, all, thresholds, employmentPeriod, popular, ban
         id="bank-jobs"
         kicker="Inside the bank"
         title="Which bank jobs are in the firing line?"
-        intro={
-          <p>
-            Barclays says {supportShare?.display} of the cuts fall in support functions, including developers. Here is how twenty typical bank roles score, highest first.
-            {bankRoles.some((r) => r.soc2020 === selected.soc) ? " Your job is in this list." : ""}
-          </p>
-        }
+        intro={<p>{supportShare?.display} of the cuts are in support jobs, Barclays says. Ten bank jobs, scored.</p>}
       >
         <BankRoles roles={bankRoles} selected={slimSelected} />
       </Section>
 
-      <Section id="league" kicker="League table" title="Britain's most and least exposed jobs" tone="tint" intro={<p>Flip between the ten jobs with the most to worry about and the ten that can sleep easy. Your job stays highlighted.</p>}>
+      <Section id="league" kicker="League table" title="Britain's most and least exposed jobs" tone="tint" intro={<p>The ten most exposed jobs, the ten safest, and where yours sits.</p>}>
         <TopBottom all={all} selected={slimSelected} />
       </Section>
 
@@ -93,32 +88,20 @@ export function Story({ example, all, thresholds, employmentPeriod, popular, ban
         id="everyone"
         kicker="The big picture"
         title={<>Every job in Britain, one dot each</>}
-        intro={
-          <p>
-            {all.length} occupations, placed by exposure score. Bigger dots mean more people do the job. Find yours, then tap around: the bank clerks sit a long way to the right of the brickies.
-          </p>
-        }
+        intro={<p>{all.length} jobs. Further right, more exposed. Bigger dot, more people. Tap any dot.</p>}
       >
         <div ref={swarmRef} style={{ minHeight: 360 }}>
           {swarmInView ? <Beeswarm all={all} selected={slimSelected} thresholds={thresholds} onPick={pickSoc} /> : null}
         </div>
       </Section>
 
-      <Section id="already" kicker="Right now" title="What the robots can already do" tone="tint">
+      <Section id="already" kicker="Right now" title="What the robots can already do" tone="tint" intro={<p>{ukStat.display} of UK workers are in jobs with tasks AI could do or help with, says the Government.</p>}>
         <CountUp
           value={taskStat.value ?? 0}
-          caption="of all work tasks could be done significantly faster by a chatbot alone, at the same quality."
-          quote={toolStat.quote}
+          caption="of all work tasks could already be done faster by a chatbot alone, at the same quality."
           source={toolStat.source}
           sourceUrl={toolStat.source_url}
         />
-        <p style={{ textAlign: "center", marginTop: 20, fontSize: 15 }}>
-          And in Britain, {ukStat.display} of workers are in jobs with tasks AI could do or help with, according to{" "}
-          <a href={ukStat.source_url} target="_blank" rel="noopener noreferrer">
-            the Government&rsquo;s own January 2026 assessment
-          </a>
-          , citing the IMF.
-        </p>
       </Section>
 
       <Section id="poll" kicker="Your call" title="Have your say">

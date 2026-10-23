@@ -73,9 +73,7 @@ export function ResultCard({ occ, all, thresholds, employmentPeriod }: Props) {
       </h4>
       <TaskBars tasks={occ.tasks} thresholds={thresholds} />
       <p className={styles.foot}>
-        Tasks from the ONS job description. Per-task scores are our estimate from the wording, anchored on the job&rsquo;s overall
-        exposure. Employment: ONS Annual Population Survey, {employmentPeriod}.
-        {occ.mapping.type !== "one-to-one" ? ` Exposure score inherited through a ${occ.mapping.type} SOC code mapping.` : ""}
+        Tasks: ONS. Task scores are estimates. Headcount: ONS, {employmentPeriod}.
       </p>
 
       <div className={styles.shareRow}>

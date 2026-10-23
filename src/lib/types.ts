@@ -74,6 +74,8 @@ export interface Fact {
   source: string;
   source_url: string;
   range?: [number, number];
+  verified_via?: string;
+  verified_via_note?: string;
 }
 
 export interface TimelineItem {
@@ -81,6 +83,7 @@ export interface TimelineItem {
   label: string;
   source: string;
   source_url: string;
+  verified_via?: string;
 }
 
 export interface BarclaysFacts {

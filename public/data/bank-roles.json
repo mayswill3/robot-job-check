@@ -2,30 +2,6 @@
  "note": "Bank-specific roles for the Barclays section. Each role is mapped to a SOC 2020 unit group using the ONS SOC 2020 coding index (Volume 2), which lists the exact job title under that code. Exposure and employment are then pulled from the main occupations dataset so every number on the bank chart shares one methodology. 'barclays_context' quotes what Barclays itself said about where the cuts fall, with the source URL in barclays_facts.json.",
  "roles": [
   {
-   "role": "Business / risk analyst",
-   "soc2020": "2431",
-   "index_title": "Risk analyst",
-   "group": "Management",
-   "note": "ONS codes 'Risk analyst' and 'Financial risk analyst' to 2431 Management consultants and business analysts.",
-   "title": "Management consultants and business analysts",
-   "score": 100.0,
-   "rank": 1,
-   "verdict": "risk",
-   "employment": 245663
-  },
-  {
-   "role": "Accountant",
-   "soc2020": "2421",
-   "index_title": "Bank accountant",
-   "group": "Support functions",
-   "note": "2421 Chartered and certified accountants.",
-   "title": "Chartered and certified accountants",
-   "score": 99.2,
-   "rank": 2,
-   "verdict": "risk",
-   "employment": 233649
-  },
-  {
    "role": "Mortgage adviser",
    "soc2020": "2422",
    "index_title": "Mortgage adviser",
@@ -38,54 +14,6 @@
    "employment": 268652
   },
   {
-   "role": "Data analyst",
-   "soc2020": "3544",
-   "index_title": "Data analyst",
-   "group": "Technology",
-   "note": "3544 Data analysts.",
-   "title": "Data analysts",
-   "score": 97.3,
-   "rank": 9,
-   "verdict": "risk",
-   "employment": 141090
-  },
-  {
-   "role": "Credit controller",
-   "soc2020": "4121",
-   "index_title": "Credit controller",
-   "group": "Operations",
-   "note": "4121 Credit controllers.",
-   "title": "Credit controllers",
-   "score": 97.2,
-   "rank": 11,
-   "verdict": "risk",
-   "employment": 29011
-  },
-  {
-   "role": "Payments / reconciliation clerk",
-   "soc2020": "4122",
-   "index_title": "Payroll clerk",
-   "group": "Operations",
-   "note": "4122 Book-keepers, payroll managers and wages clerks.",
-   "title": "Book-keepers, payroll managers and wages clerks",
-   "score": 96.0,
-   "rank": 16,
-   "verdict": "risk",
-   "employment": 379186
-  },
-  {
-   "role": "Insurance underwriter",
-   "soc2020": "3532",
-   "index_title": "Insurance underwriter",
-   "group": "Advice",
-   "note": "3532 Insurance underwriters.",
-   "title": "Insurance underwriters",
-   "score": 94.8,
-   "rank": 24,
-   "verdict": "risk",
-   "employment": 37557
-  },
-  {
    "role": "Branch manager",
    "soc2020": "1131",
    "index_title": "Bank manager",
@@ -96,30 +24,6 @@
    "rank": 25,
    "verdict": "risk",
    "employment": 461449
-  },
-  {
-   "role": "HR officer",
-   "soc2020": "3571",
-   "index_title": "Human resources officer",
-   "group": "Support functions",
-   "note": "3571 Human resources and industrial relations officers.",
-   "title": "Human resources and industrial relations officers",
-   "score": 92.8,
-   "rank": 43,
-   "verdict": "risk",
-   "employment": 195970
-  },
-  {
-   "role": "Cyber security analyst",
-   "soc2020": "2135",
-   "index_title": "Cyber security analyst",
-   "group": "Technology",
-   "note": "2135 Cyber security professionals.",
-   "title": "Cyber security professionals",
-   "score": 92.1,
-   "rank": 51,
-   "verdict": "risk",
-   "employment": 91238
   },
   {
    "role": "Compliance analyst",
@@ -182,18 +86,6 @@
    "employment": 178735
   },
   {
-   "role": "Customer service officer",
-   "soc2020": "7219",
-   "index_title": "Customer service officer",
-   "group": "Customer contact",
-   "note": "Customer service roles outside a call centre, 7219 Customer service occupations n.e.c.",
-   "title": "Customer service occupations n.e.c.",
-   "score": 78.9,
-   "rank": 149,
-   "verdict": "watch",
-   "employment": 284978
-  },
-  {
    "role": "Fraud investigator",
    "soc2020": "3319",
    "index_title": "Fraud analyst",
@@ -228,18 +120,6 @@
    "rank": 213,
    "verdict": "watch",
    "employment": 158622
-  },
-  {
-   "role": "Office cleaner",
-   "soc2020": "9223",
-   "index_title": "Cleaner",
-   "group": "Branch",
-   "note": "9223 Cleaners and domestics, included as the physical-work comparator.",
-   "title": "Cleaners and domestics",
-   "score": 8.8,
-   "rank": 399,
-   "verdict": "safe",
-   "employment": 497242
   }
  ]
 }

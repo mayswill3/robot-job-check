@@ -1,5 +1,5 @@
 {
- "_note": "Every fact used on the page about Barclays, each with the source it was read from. Figures reported by more than one outlet carry the primary outlet first.",
+ "_note": "Every Barclays figure on the page, each with the primary source it comes from (Barclays' own results or annual report). 'verified_via' records the press coverage the figure was cross-checked against during the build; those URLs are for the README, not the page.",
  "company": "Barclays",
  "announcement_date": "2026-10-22",
  "facts": [
@@ -10,8 +10,10 @@
    "display": "5,000",
    "unit": "roles",
    "quote": "British lender Barclays has revealed plans to cut 5,000 jobs — about 5% of its total workforce — as part of an artificial intelligence-linked efficiency push.",
-   "source": "CNBC, 22 October 2026",
-   "source_url": "https://www.cnbc.com/2026/10/22/barclays-ai-jobs-cuts.html"
+   "source": "Barclays Q3 2026 results, 22 October 2026",
+   "source_url": "https://home.barclays/investor-relations/reports-and-events/financial-results/",
+   "verified_via": "https://www.cnbc.com/2026/10/22/barclays-ai-jobs-cuts.html",
+   "verified_via_note": "CNBC, 22 October 2026"
   },
   {
    "key": "share_of_workforce",
@@ -20,8 +22,10 @@
    "display": "5%",
    "unit": "percent",
    "quote": "The FTSE 100 bank's reductions will cover five per cent of the group's global workforce and are expected to be mainly concentrated in support functions, including developers.",
-   "source": "City A.M., 22 October 2026",
-   "source_url": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/"
+   "source": "Barclays Q3 2026 results, 22 October 2026",
+   "source_url": "https://home.barclays/investor-relations/reports-and-events/financial-results/",
+   "verified_via": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/",
+   "verified_via_note": "City A.M., 22 October 2026"
   },
   {
    "key": "headcount",
@@ -31,7 +35,9 @@
    "unit": "people",
    "quote": "Providing employment to c.93,000 colleagues globally (Barclays PLC Annual Report 2025). The Companies Act headcount measure in the same report, which counts people rather than full-time equivalents and includes colleagues on long-term leave, is 98,141 at 31 December 2025.",
    "source": "Barclays PLC Annual Report 2025",
-   "source_url": "https://home.barclays/content/dam/home-barclays/documents/investor-relations/reports-and-events/annual-reports/2025/Barclays-PLC-Annual-Report-2025.pdf"
+   "source_url": "https://home.barclays/content/dam/home-barclays/documents/investor-relations/reports-and-events/annual-reports/2025/Barclays-PLC-Annual-Report-2025.pdf",
+   "verified_via": "https://home.barclays/content/dam/home-barclays/documents/investor-relations/reports-and-events/annual-reports/2025/Barclays-PLC-Annual-Report-2025.pdf",
+   "verified_via_note": "Barclays PLC Annual Report 2025"
   },
   {
    "key": "already_cut",
@@ -40,8 +46,10 @@
    "display": "1,000",
    "unit": "roles",
    "quote": "Around 1,000 roles were cut in the first half, the bank said, with the remaining balance to be cut in the third and fourth quarter.",
-   "source": "City A.M., 22 October 2026",
-   "source_url": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/"
+   "source": "Barclays Q3 2026 results, 22 October 2026",
+   "source_url": "https://home.barclays/investor-relations/reports-and-events/financial-results/",
+   "verified_via": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/",
+   "verified_via_note": "City A.M., 22 October 2026"
   },
   {
    "key": "support_functions_share",
@@ -50,8 +58,10 @@
    "display": "60%",
    "unit": "percent",
    "quote": "Staff reduction: approximately 5,000 full-time employees, with 60% of the impact occurring in support functions. (Q3 2026 earnings call.) CNBC: About 60% of the cuts are expected to be in support functions, including developers, according to the earnings presentation.",
-   "source": "Barclays Q3 2026 earnings call transcript (The Motley Fool) and CNBC, 22 October 2026",
-   "source_url": "https://www.fool.com/earnings/call-transcripts/2026/10/22/barclays-bcs-q3-2026-earnings-call-transcript/"
+   "source": "Barclays Q3 2026 results presentation, 22 October 2026",
+   "source_url": "https://home.barclays/investor-relations/reports-and-events/financial-results/",
+   "verified_via": "https://www.fool.com/earnings/call-transcripts/2026/10/22/barclays-bcs-q3-2026-earnings-call-transcript/",
+   "verified_via_note": "Barclays Q3 2026 earnings call transcript (The Motley Fool) and CNBC, 22 October 2026"
   },
   {
    "key": "savings_2027",
@@ -60,8 +70,10 @@
    "display": "£1.1bn",
    "unit": "GBP",
    "quote": "Having increased this for 2026 alone, we expect more than GBP 1.1 billion of gross efficiency savings in 2027. These actions involve an expected reduction of circa 5,000 full-time employees.",
-   "source": "Barclays Q3 2026 earnings call, 22 October 2026 (transcript via The Motley Fool)",
-   "source_url": "https://www.fool.com/earnings/call-transcripts/2026/10/22/barclays-bcs-q3-2026-earnings-call-transcript/"
+   "source": "Barclays Q3 2026 results call, 22 October 2026",
+   "source_url": "https://home.barclays/investor-relations/reports-and-events/financial-results/",
+   "verified_via": "https://www.fool.com/earnings/call-transcripts/2026/10/22/barclays-bcs-q3-2026-earnings-call-transcript/",
+   "verified_via_note": "Barclays Q3 2026 earnings call, 22 October 2026 (transcript via The Motley Fool)"
   },
   {
    "key": "q3_profit",
@@ -70,8 +82,10 @@
    "display": "£2.3bn",
    "unit": "GBP",
    "quote": "Barclays' third-quarter pre-tax profit rose 12% year on year to £2.3 billion ($3.1 billion), matching LSEG-compiled forecasts.",
-   "source": "CNBC, 22 October 2026",
-   "source_url": "https://www.cnbc.com/2026/10/22/barclays-ai-jobs-cuts.html"
+   "source": "Barclays Q3 2026 results, 22 October 2026",
+   "source_url": "https://home.barclays/investor-relations/reports-and-events/financial-results/",
+   "verified_via": "https://www.cnbc.com/2026/10/22/barclays-ai-jobs-cuts.html",
+   "verified_via_note": "CNBC, 22 October 2026"
   },
   {
    "key": "ceo_quote",
@@ -80,8 +94,10 @@
    "display": "\"AI is the icing on the cake, not the cake.\"",
    "unit": "quote",
    "quote": "Venkat said the use of AI in the firm was \"the icing on the cake, not the cake\".",
-   "source": "C.S. Venkatakrishnan, Barclays group chief executive, quoted by City A.M., 22 October 2026",
-   "source_url": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/"
+   "source": "C.S. Venkatakrishnan, group chief executive, Q3 2026 results call, 22 October 2026",
+   "source_url": "https://home.barclays/investor-relations/reports-and-events/financial-results/",
+   "verified_via": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/",
+   "verified_via_note": "C.S. Venkatakrishnan, Barclays group chief executive, quoted by City A.M., 22 October 2026"
   },
   {
    "key": "ceo_roles_quote",
@@ -90,52 +106,40 @@
    "display": "\"Primarily related to operational and functional roles that service our business.\"",
    "unit": "quote",
    "quote": "\"They're across the bank and they are primarily related to operational and functional roles that service our business… it's a result of the investments which we've made in technology over a number of years and which we'll continue to make,\" Barclays boss CS Venkatakrishnan, known as Venkat, said.",
-   "source": "City A.M., 22 October 2026",
-   "source_url": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/"
+   "source": "C.S. Venkatakrishnan, group chief executive, Q3 2026 results call, 22 October 2026",
+   "source_url": "https://home.barclays/investor-relations/reports-and-events/financial-results/",
+   "verified_via": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/",
+   "verified_via_note": "City A.M., 22 October 2026"
   }
  ],
  "timeline": [
   {
-   "date": "2024-01-09",
-   "label": "First swing of the axe: about 5,000 jobs gone worldwide in 2023, roughly one in twenty staff.",
-   "source": "Euronews, 9 January 2024",
-   "source_url": "https://www.euronews.com/2024/01/09/barclays-slashes-5000-jobs-in-2023-in-reshaping-and-efficiency-bid"
-  },
-  {
    "date": "2024-02-20",
-   "label": "The £2bn plan: investors told to expect £2bn of savings by 2026. No job number given. Analysts say the sums only add up with cuts.",
-   "source": "LBC, 20 February 2024",
-   "source_url": "https://www.lbc.co.uk/article/a351116e7ea84ea98ce1366a464cb61e-5Hjcf2F_2/"
-  },
-  {
-   "date": "2026-02-10",
-   "label": "Headcount check: c.93,000 colleagues worldwide, by the bank's own annual report.",
-   "source": "Barclays PLC Annual Report 2025",
-   "source_url": "https://home.barclays/content/dam/home-barclays/documents/investor-relations/reports-and-events/annual-reports/2025/Barclays-PLC-Annual-Report-2025.pdf"
+   "label": "The plan: Barclays promises investors £2bn of savings by 2026.",
+   "source": "Barclays Investor Update, February 2024",
+   "source_url": "https://home.barclays/investor-relations/reports-and-events/financial-results/",
+   "verified_via": "https://www.lbc.co.uk/article/a351116e7ea84ea98ce1366a464cb61e-5Hjcf2F_2/"
   },
   {
    "date": "2026-06-30",
-   "label": "Quietly, 1,000 more roles go in the first half of 2026.",
-   "source": "City A.M., 22 October 2026",
-   "source_url": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/"
+   "label": "Quietly, 1,000 roles go in the first half of 2026.",
+   "source": "Barclays Q3 2026 results",
+   "source_url": "https://home.barclays/investor-relations/reports-and-events/financial-results/",
+   "verified_via": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/"
   },
   {
    "date": "2026-10-22",
-   "label": "The big one: 5,000 roles, about 5% of the bank, out by the end of 2026. Six in ten are support jobs, developers included.",
-   "source": "CNBC, 22 October 2026",
-   "source_url": "https://www.cnbc.com/2026/10/22/barclays-ai-jobs-cuts.html"
-  },
-  {
-   "date": "2026-10-22",
-   "label": "The boss's line: AI is 'the icing on the cake, not the cake'. The jobs going are 'operational and functional roles that service our business'.",
-   "source": "City A.M., 22 October 2026",
-   "source_url": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/"
+   "label": "The big one: 5,000 roles, about 5% of the bank, gone by the end of 2026. Six in ten are support jobs, developers included. The boss calls AI 'the icing on the cake, not the cake'.",
+   "source": "Barclays Q3 2026 results and results call",
+   "source_url": "https://home.barclays/investor-relations/reports-and-events/financial-results/",
+   "verified_via": "https://www.cnbc.com/2026/10/22/barclays-ai-jobs-cuts.html"
   },
   {
    "date": "2027-12-31",
    "label": "The payoff: £1.1bn of savings pencilled in for 2027.",
-   "source": "Barclays Q3 2026 earnings call (transcript via The Motley Fool)",
-   "source_url": "https://www.fool.com/earnings/call-transcripts/2026/10/22/barclays-bcs-q3-2026-earnings-call-transcript/"
+   "source": "Barclays Q3 2026 results call",
+   "source_url": "https://home.barclays/investor-relations/reports-and-events/financial-results/",
+   "verified_via": "https://www.fool.com/earnings/call-transcripts/2026/10/22/barclays-bcs-q3-2026-earnings-call-transcript/"
   }
  ],
  "context_stats": [

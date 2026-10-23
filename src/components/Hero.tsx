@@ -1,5 +1,4 @@
 import type { Fact } from "@/lib/types";
-import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Hero.module.css";
 
 interface Props {
@@ -15,7 +14,6 @@ export function Hero({ cuts, share, headcount, announced }: Props) {
       <div className="container">
         <div className={styles.topbar}>
           <span className="kicker">Data investigation</span>
-          <ThemeToggle />
         </div>
         <h1 className={styles.headline}>
           Will a robot

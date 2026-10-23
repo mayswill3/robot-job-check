@@ -47,13 +47,13 @@ way down.
 |---|---|---|
 | 1 | Hero | Headline, the three Barclays numbers (5,000 / 5% / c.93,000), one-line standfirst. Not a 100vh hero. |
 | 2 | Job checker | Fuzzy search over 408 occupations and 5,256 aliases ("brickie" finds Bricklayers). Popular chips. Preloaded with bank clerks so it is never empty. Result: traffic-light gauge, verdict, rank, "more exposed than X% of jobs", headcount, task breakdown, copy-to-clipboard share line. |
-| 3 | What Barclays said | Seven-stop timeline from the 2023 cuts to the 2027 savings target, each stop sourced. |
-| 4 | Which bank jobs | Twenty bank roles ranked by exposure, horizontal bars, reader's job highlighted. |
+| 3 | What Barclays said | Four-stop timeline from the 2024 savings plan to the 2027 target. No links on the page; sources in the footer. |
+| 4 | Which bank jobs | Ten bank roles ranked by exposure, horizontal bars, reader's job highlighted. |
 | 5 | League table | Most at risk vs safest ten, toggle, reader's job highlighted or spliced in at its true position. |
 | 6 | Every job in Britain | Force-layout beeswarm: x = exposure, area = headcount, reader's dot pulsing and labelled. Tap a dot to make it your job. |
-| 7 | What the robots can already do | Count-up to 15%, the Eloundou et al. share of tasks an LLM alone could do significantly faster, with the 47 to 56% with-tooling figure and the Government's 70% of UK workers figure. |
+| 7 | What the robots can already do | Count-up to 15%, the Eloundou et al. share of tasks an LLM alone could do significantly faster, with the 47 to 56% with-tooling figure. |
 | 8 | Poll | "Would you trust a robot with your money?" Real counts in Redis, one vote per reader per day. |
-| 9 | Methodology | What the score is and is not, how verdicts are drawn, code mapping, task derivation, every Barclays fact with its quote and URL, every dataset with licence. |
+| 9 | Where the numbers come from | What the score is and is not, how verdicts are drawn, code mapping, task derivation, every Barclays fact with its primary source, every dataset. Theme toggle lives here. |
 
 ## The data
 
@@ -76,8 +76,10 @@ Full detail, including why each source was chosen over the alternatives in the b
 - **Score and verdicts:** score is the AIOE min-max rescaled to 0 to 100. Verdict bands are
   employment-weighted tertiles (each band holds a third of UK workers), published in the JSON and read by
   the front end rather than hard-coded.
-- **Barclays:** every figure in `public/data/barclays-facts.json` carries the sentence it came from and the URL
-  (CNBC, City A.M., the Q3 2026 earnings call transcript, the 2025 Annual Report, Euronews, LBC).
+- **Barclays:** every figure in `public/data/barclays-facts.json` points at a primary source, Barclays' Q3 2026 results
+  or its 2025 Annual Report, and that is what the page shows. The same file keeps a `verified_via` URL for each figure
+  recording the press coverage it was cross-checked against during the build, so the trail is complete without the
+  page linking to other outlets.
 
 Regenerate everything with:
 
@@ -94,6 +96,8 @@ npm run data
   beeswarm never rely on colour alone.
 - **The reader's job is the thread.** One piece of state in `Story.tsx` drives the result card, the bank
   bars, the league table and the beeswarm, so scrolling keeps paying off after the search.
+- **Less is more on the page.** Every section is one sentence of intro, then the data. Sources, caveats and the
+  theme toggle live in the footer so nothing competes with the charts.
 - **Honest about estimates.** Per-task scores are labelled "Estimated" with a one-line explanation under
   the chart, and the methodology says plainly that exposure is not job loss.
 - **Charts are React components that use D3 for maths only.** `d3-shape` draws the gauge arcs,

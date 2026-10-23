@@ -19,6 +19,9 @@
 .list li {
   margin-bottom: 8px;
 }
+.toggle {
+  margin-top: 18px;
+}
 .small {
   font-size: 13px;
   color: var(--muted);

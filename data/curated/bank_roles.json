@@ -1,25 +1,75 @@
 {
-  "_note": "Bank-specific roles for the Barclays section. Each role is mapped to a SOC 2020 unit group using the ONS SOC 2020 coding index (Volume 2), which lists the exact job title under that code. Exposure and employment are then pulled from the main occupations dataset so every number on the bank chart shares one methodology. 'barclays_context' quotes what Barclays itself said about where the cuts fall, with the source URL in barclays_facts.json.",
-  "roles": [
-    {"role": "Bank cashier / teller", "soc2020": "4123", "index_title": "Bank teller", "group": "Branch", "note": "ONS codes 'Bank teller', 'Bank cashier' and 'Telephone banking adviser' to 4123 Bank and post office clerks."},
-    {"role": "Call centre adviser", "soc2020": "7211", "index_title": "Call centre agent", "group": "Customer contact", "note": "ONS codes 'Call centre agent' and 'Fraud adviser' (call centre) to 7211."},
-    {"role": "Customer service officer", "soc2020": "7219", "index_title": "Customer service officer", "group": "Customer contact", "note": "Customer service roles outside a call centre, 7219 Customer service occupations n.e.c."},
-    {"role": "Back-office operations clerk", "soc2020": "4129", "index_title": "Mortgage administrator", "group": "Operations", "note": "ONS codes 'Mortgage administrator', 'Mortgage assistant' and financial processing clerks to 4129 Financial administrative occupations n.e.c."},
-    {"role": "Payments / reconciliation clerk", "soc2020": "4122", "index_title": "Payroll clerk", "group": "Operations", "note": "4122 Book-keepers, payroll managers and wages clerks."},
-    {"role": "Credit controller", "soc2020": "4121", "index_title": "Credit controller", "group": "Operations", "note": "4121 Credit controllers."},
-    {"role": "Fraud investigator", "soc2020": "3319", "index_title": "Fraud analyst", "group": "Risk and compliance", "note": "ONS codes 'Fraud analyst', 'Fraud inspector' and 'Fraud strategy analyst' to 3319 Protective service associate professionals n.e.c."},
-    {"role": "Compliance analyst", "soc2020": "2482", "index_title": "Compliance analyst", "group": "Risk and compliance", "note": "2482 Quality assurance and regulatory professionals."},
-    {"role": "Mortgage adviser", "soc2020": "2422", "index_title": "Mortgage adviser", "group": "Advice", "note": "ONS codes 'Mortgage adviser', 'Financial adviser' and 'Wealth manager' to 2422 Finance and investment analysts and advisers."},
-    {"role": "Insurance underwriter", "soc2020": "3532", "index_title": "Insurance underwriter", "group": "Advice", "note": "3532 Insurance underwriters."},
-    {"role": "Branch manager", "soc2020": "1131", "index_title": "Bank manager", "group": "Management", "note": "ONS codes 'Bank manager' and 'Branch manager (bank)' to 1131 Financial managers and directors."},
-    {"role": "Business / risk analyst", "soc2020": "2431", "index_title": "Risk analyst", "group": "Management", "note": "ONS codes 'Risk analyst' and 'Financial risk analyst' to 2431 Management consultants and business analysts."},
-    {"role": "Data analyst", "soc2020": "3544", "index_title": "Data analyst", "group": "Technology", "note": "3544 Data analysts."},
-    {"role": "Software developer", "soc2020": "2134", "index_title": "Software developer", "group": "Technology", "note": "Barclays said the cuts include fewer developers. 2134 Programmers and software development professionals."},
-    {"role": "IT support technician", "soc2020": "3132", "index_title": "IT support technician", "group": "Technology", "note": "3132 IT user support technicians."},
-    {"role": "Cyber security analyst", "soc2020": "2135", "index_title": "Cyber security analyst", "group": "Technology", "note": "2135 Cyber security professionals."},
-    {"role": "HR officer", "soc2020": "3571", "index_title": "Human resources officer", "group": "Support functions", "note": "3571 Human resources and industrial relations officers."},
-    {"role": "Accountant", "soc2020": "2421", "index_title": "Bank accountant", "group": "Support functions", "note": "2421 Chartered and certified accountants."},
-    {"role": "Security guard (branch)", "soc2020": "9231", "index_title": "Security guard", "group": "Branch", "note": "9231 Security guards and related occupations."},
-    {"role": "Office cleaner", "soc2020": "9223", "index_title": "Cleaner", "group": "Branch", "note": "9223 Cleaners and domestics, included as the physical-work comparator."}
-  ]
+ "_note": "Bank-specific roles for the Barclays section. Each role is mapped to a SOC 2020 unit group using the ONS SOC 2020 coding index (Volume 2), which lists the exact job title under that code. Exposure and employment are then pulled from the main occupations dataset so every number on the bank chart shares one methodology. 'barclays_context' quotes what Barclays itself said about where the cuts fall, with the source URL in barclays_facts.json.",
+ "roles": [
+  {
+   "role": "Bank cashier / teller",
+   "soc2020": "4123",
+   "index_title": "Bank teller",
+   "group": "Branch",
+   "note": "ONS codes 'Bank teller', 'Bank cashier' and 'Telephone banking adviser' to 4123 Bank and post office clerks."
+  },
+  {
+   "role": "Call centre adviser",
+   "soc2020": "7211",
+   "index_title": "Call centre agent",
+   "group": "Customer contact",
+   "note": "ONS codes 'Call centre agent' and 'Fraud adviser' (call centre) to 7211."
+  },
+  {
+   "role": "Back-office operations clerk",
+   "soc2020": "4129",
+   "index_title": "Mortgage administrator",
+   "group": "Operations",
+   "note": "ONS codes 'Mortgage administrator', 'Mortgage assistant' and financial processing clerks to 4129 Financial administrative occupations n.e.c."
+  },
+  {
+   "role": "Fraud investigator",
+   "soc2020": "3319",
+   "index_title": "Fraud analyst",
+   "group": "Risk and compliance",
+   "note": "ONS codes 'Fraud analyst', 'Fraud inspector' and 'Fraud strategy analyst' to 3319 Protective service associate professionals n.e.c."
+  },
+  {
+   "role": "Compliance analyst",
+   "soc2020": "2482",
+   "index_title": "Compliance analyst",
+   "group": "Risk and compliance",
+   "note": "2482 Quality assurance and regulatory professionals."
+  },
+  {
+   "role": "Mortgage adviser",
+   "soc2020": "2422",
+   "index_title": "Mortgage adviser",
+   "group": "Advice",
+   "note": "ONS codes 'Mortgage adviser', 'Financial adviser' and 'Wealth manager' to 2422 Finance and investment analysts and advisers."
+  },
+  {
+   "role": "Branch manager",
+   "soc2020": "1131",
+   "index_title": "Bank manager",
+   "group": "Management",
+   "note": "ONS codes 'Bank manager' and 'Branch manager (bank)' to 1131 Financial managers and directors."
+  },
+  {
+   "role": "Software developer",
+   "soc2020": "2134",
+   "index_title": "Software developer",
+   "group": "Technology",
+   "note": "Barclays said the cuts include fewer developers. 2134 Programmers and software development professionals."
+  },
+  {
+   "role": "IT support technician",
+   "soc2020": "3132",
+   "index_title": "IT support technician",
+   "group": "Technology",
+   "note": "3132 IT user support technicians."
+  },
+  {
+   "role": "Security guard (branch)",
+   "soc2020": "9231",
+   "index_title": "Security guard",
+   "group": "Branch",
+   "note": "9231 Security guards and related occupations."
+  }
+ ]
 }

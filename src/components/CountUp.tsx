@@ -10,10 +10,9 @@ interface Props {
   caption: string;
   source: string;
   sourceUrl: string;
-  quote: string;
 }
 
-export function CountUp({ value, suffix = "%", caption, source, sourceUrl, quote }: Props) {
+export function CountUp({ value, suffix = "%", caption, source, sourceUrl }: Props) {
   const { ref, inView } = useInView<HTMLDivElement>();
   const reduced = useReducedMotion();
   const [n, setN] = useState(0);
@@ -45,14 +44,12 @@ export function CountUp({ value, suffix = "%", caption, source, sourceUrl, quote
         </span>
       </p>
       <p className={styles.caption}>{caption}</p>
-      <blockquote className={styles.quote}>
-        <p>&ldquo;{quote}&rdquo;</p>
-        <cite>
-          <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
-            {source}
-          </a>
-        </cite>
-      </blockquote>
+      <p className={styles.src}>
+        With AI tools built on top, it is 47 to 56% of tasks.{" "}
+        <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
+          {source}
+        </a>
+      </p>
     </div>
   );
 }

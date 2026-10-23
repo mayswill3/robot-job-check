@@ -9,7 +9,7 @@ export function BankRoles({ roles, selected }: { roles: BankRole[]; selected: Sl
       data={roles.map((r) => ({
         id: r.soc2020 + r.role,
         label: r.role,
-        sub: `${r.group} · ONS group: ${r.title}`,
+        sub: r.group,
         value: r.score,
         verdict: r.verdict,
         highlight: r.soc2020 === selected.soc,
