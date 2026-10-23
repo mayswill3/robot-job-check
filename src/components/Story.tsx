@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type {
   BankRole,
   BarclaysFacts,
@@ -41,6 +41,14 @@ interface Props {
   facts: BarclaysFacts;
 }
 
+interface Selection {
+  occ: Occupation;
+  /** The reader's own word for it, or the ONS title. */
+  label: string;
+  /** False until the reader has picked something: the card shows the preloaded example. */
+  picked: boolean;
+}
+
 /** Client shell that owns one piece of state: the reader's job. Every chart reacts to it. */
 export function Story({
   example,
@@ -55,34 +63,58 @@ export function Story({
   ukStat,
   facts,
 }: Props) {
-  const [selected, setSelected] = useState<Occupation>(example);
-  const [cache, setCache] = useState<Record<string, Occupation>>({
-    [example.soc]: example,
-  });
+  const [sel, setSel] = useState<Selection>({ occ: example, label: "Bank clerk", picked: false });
+  const selected = sel.occ;
+  const cache = useRef<Record<string, Occupation>>({ [example.soc]: example });
 
-  const onSelect = useCallback((o: Occupation) => {
-    setSelected(o);
-    setCache((c) => (c[o.soc] ? c : { ...c, [o.soc]: o }));
+  const onSelect = useCallback((o: Occupation, label: string) => {
+    setSel({ occ: o, label, picked: true });
+    cache.current[o.soc] = o;
+    // Keep the job in the URL so a shared link or a refresh lands on the same result.
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set("job", o.soc);
+      window.history.replaceState(null, "", url);
+    } catch {}
   }, []);
 
-  // Picking a dot on the beeswarm only knows the SOC; pull the full record from the
-  // lazily loaded dataset via the checker's cache, or fetch it if the reader got there first.
+  const fetchOcc = useCallback(async (soc: string): Promise<Occupation | null> => {
+    if (cache.current[soc]) return cache.current[soc];
+    try {
+      const d = (await (await fetch("/data/occupations.json")).json()) as { occupations: Occupation[] };
+      for (const o of d.occupations) cache.current[o.soc] = o;
+      return d.occupations.find((x) => x.soc === soc) ?? null;
+    } catch {
+      return null;
+    }
+  }, []);
+
+  // "Make this my job" on the beeswarm: select it, then go back up to the card so the
+  // reader sees the verdict. Tapping a dot on its own only shows the tooltip.
   const pickSoc = useCallback(
     async (soc: string) => {
-      if (cache[soc]) return onSelect(cache[soc]);
-      try {
-        const d = (await (await fetch("/data/occupations.json")).json()) as {
-          occupations: Occupation[];
-        };
-        const o = d.occupations.find((x) => x.soc === soc);
-        if (o) onSelect(o);
-        document
-          .getElementById("checker")
-          ?.scrollIntoView({ behavior: "smooth", block: "start" });
-      } catch {}
+      const o = await fetchOcc(soc);
+      if (!o) return;
+      onSelect(o, o.title);
+      document.getElementById("checker")?.scrollIntoView({ behavior: "smooth", block: "start" });
     },
-    [cache, onSelect],
+    [fetchOcc, onSelect],
   );
+
+  // Deep link: /?job=2237 opens on that job, scrolled to the card.
+  useEffect(() => {
+    const soc = new URLSearchParams(window.location.search).get("job");
+    if (!soc || !/^\d{4}$/.test(soc)) return;
+    let cancelled = false;
+    fetchOcc(soc).then((o) => {
+      if (!o || cancelled) return;
+      setSel({ occ: o, label: o.title, picked: true });
+      document.getElementById("checker")?.scrollIntoView({ block: "start" });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [fetchOcc]);
 
   const { ref: swarmRef, inView: swarmInView } = useInView<HTMLDivElement>(
     "600px 0px 600px 0px",
@@ -167,6 +199,8 @@ export function Story({
           employmentPeriod={employmentPeriod}
           popular={popular}
           selected={selected}
+          label={sel.label}
+          isExample={!sel.picked}
           onSelect={onSelect}
         />
       </Section>
@@ -263,8 +297,8 @@ export function Story({
         intro={
           <p>
             All {all.length} jobs, one dot each. Further right, more exposed.
-            Bigger dot, more people do it. Yours is in red. Tap any dot to
-            check it.
+            Bigger dot, more people do it. Yours is ringed. Tap any dot to see
+            the job.
           </p>
         }
         outro={

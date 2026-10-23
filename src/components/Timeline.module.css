@@ -7,6 +7,13 @@
 .item {
   position: relative;
   padding: 0 0 22px 20px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+.shown .item {
+  opacity: 1;
+  transform: none;
 }
 .item::before {
   content: "";

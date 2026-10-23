@@ -4,11 +4,13 @@
  * Scoring tiers (higher wins):
  *   100 exact alias/title match        ("brickie", "bank clerk")
  *    90 priority alias starts with q   (curated slang gets first dibs)
+ *    85 q is a whole word of the term  ("nurse" in "dental nurse", not "nursery")
  *    80 title or alias starts with q
  *    70 a whole word in title/alias starts with q
  *    60 q is a substring
  *    40 fuzzy: every query token is within edit distance 1-2 of a word
- * Ties break on priority flag, then shorter title, then employment (bigger first).
+ * Ties break on priority flag, then employment (bigger jobs first, because they are
+ * more likely to be the reader's), then shorter title.
  */
 import type { Occupation } from "./types";
 
@@ -90,6 +92,7 @@ export function search<T extends Searchable>(index: Indexed<T>[], query: string,
       let s = 0;
       if (t.norm === q) s = 100;
       else if (t.priority && t.norm.startsWith(q)) s = 90;
+      else if (qTokens.length === 1 && t.words.includes(q)) s = 85;
       else if (t.norm.startsWith(q)) s = 80;
       else if (t.words.some((w) => w.startsWith(q)) || (qTokens.length > 1 && qTokens.every((qt) => t.words.some((w) => w.startsWith(qt))))) s = 70;
       else if (t.norm.includes(q)) s = 60;
@@ -107,8 +110,19 @@ export function search<T extends Searchable>(index: Indexed<T>[], query: string,
   hits.sort(
     (a, b) =>
       b.score - a.score ||
-      a.item.title.length - b.item.title.length ||
-      (b.item.employment ?? 0) - (a.item.employment ?? 0),
+      (b.item.employment ?? 0) - (a.item.employment ?? 0) ||
+      a.item.title.length - b.item.title.length,
   );
   return hits.slice(0, limit);
+}
+
+/** Words people type that are a situation, not a job. The UI answers these differently. */
+const NOT_A_JOB = [
+  "student", "retired", "pensioner", "unemployed", "jobless", "jobseeker", "between jobs", "out of work",
+  "mum", "mom", "dad", "parent", "housewife", "househusband", "stay at home", "homemaker", "nothing", "none",
+  "on benefits", "signed off", "furloughed", "redundant", "school", "sixth form", "college", "uni",
+];
+export function isNotAJob(query: string): boolean {
+  const q = normalise(query);
+  return NOT_A_JOB.some((w) => q === w || q.startsWith(w + " ") || q.endsWith(" " + w));
 }

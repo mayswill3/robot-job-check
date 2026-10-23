@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { forceCollide, forceSimulation, forceX, forceY } from "d3-force";
 import { scaleLinear, scaleSqrt } from "d3-scale";
 import { max } from "d3-array";
@@ -58,6 +58,26 @@ export function Beeswarm({ all, selected, thresholds, onPick }: Props) {
     return ns;
   }, [all, x, height, width, mounted]);
 
+  const svgRef = useRef<SVGSVGElement>(null);
+  // Half the dots are under 8px across, so hit-test the nearest dot to the pointer
+  // instead of relying on the circle itself. 408 distance checks per event is cheap.
+  const nearest = (e: React.PointerEvent | React.MouseEvent): Node | null => {
+    const svg = svgRef.current;
+    if (!svg || nodes.length === 0) return null;
+    const rect = svg.getBoundingClientRect();
+    const px = ((e.clientX - rect.left) / rect.width) * width;
+    const py = ((e.clientY - rect.top) / rect.height) * height;
+    let best: Node | null = null;
+    let bestD = Infinity;
+    for (const n of nodes) {
+      const d = Math.hypot(n.x - px, n.y - py) - n.r;
+      if (d < bestD) {
+        bestD = d;
+        best = n;
+      }
+    }
+    return bestD <= 14 ? best : null;
+  };
   const me = nodes.find((n) => n.soc === selected.soc);
   const show = tip ?? me ?? null;
   const bands = [
@@ -69,7 +89,25 @@ export function Beeswarm({ all, selected, thresholds, onPick }: Props) {
 
   return (
     <div ref={ref} className={styles.wrap}>
-      <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height} className={styles.svg} role="img" aria-label={summary}>
+      <svg
+        ref={svgRef}
+        viewBox={`0 0 ${width} ${height}`}
+        width={width}
+        height={height}
+        className={styles.svg}
+        role="img"
+        aria-label={summary}
+        onPointerMove={(e) => {
+          if (e.pointerType === "mouse") setTip(nearest(e));
+        }}
+        onPointerLeave={(e) => {
+          if (e.pointerType === "mouse") setTip(null);
+        }}
+        onClick={(e) => {
+          const n = nearest(e);
+          if (n) setTip(n);
+        }}
+      >
         {bands.map((b) => (
           <g key={b.key}>
             <rect x={x(b.from)} y={M.top - 8} width={x(b.to) - x(b.from)} height={height - M.top - M.bottom + 8} className={styles[`band_${b.key}`]} />
@@ -98,13 +136,7 @@ export function Beeswarm({ all, selected, thresholds, onPick }: Props) {
               cx={n.x}
               cy={n.y}
               r={n.r}
-              className={`${styles.dot} ${styles[`dot_${n.verdict}`]} ${n.soc === selected.soc ? styles.me : ""}`}
-              onMouseEnter={() => setTip(n)}
-              onMouseLeave={() => setTip(null)}
-              onClick={() => {
-                setTip(n);
-                onPick?.(n.soc);
-              }}
+              className={`${styles.dot} ${styles[`dot_${n.verdict}`]} ${tip?.soc === n.soc ? styles.hit : ""} ${n.soc === selected.soc ? styles.me : ""}`}
             >
               <title>
                 {n.title}: {Math.round(n.score)}/100, {formatPeople(n.employment)} people
@@ -141,7 +173,7 @@ export function Beeswarm({ all, selected, thresholds, onPick }: Props) {
             ) : null}
           </>
         ) : (
-          "Tap a dot to see the job."
+          "Tap a dot to see the job, then make it yours to re-run the checker."
         )}
       </div>
       <details className={styles.details} onToggle={(e) => setListOpen((e.currentTarget as HTMLDetailsElement).open)}>

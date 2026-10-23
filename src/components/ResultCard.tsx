@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Occupation, SlimOccupation, Thresholds } from "@/lib/types";
 import { verdictFor } from "@/lib/verdict";
 import { rankContext } from "@/lib/ranking";
@@ -10,28 +10,41 @@ import styles from "./ResultCard.module.css";
 
 interface Props {
   occ: Occupation;
+  /** What the reader called it ("Nurse"); falls back to the ONS title. */
+  label: string;
+  /** True until the reader has picked a job: the card is showing the preloaded example. */
+  isExample: boolean;
   all: SlimOccupation[];
   thresholds: Thresholds;
   employmentPeriod: string;
 }
 
-export function ResultCard({ occ, all, thresholds, employmentPeriod }: Props) {
+export function ResultCard({ occ, label, isExample, all, thresholds, employmentPeriod }: Props) {
   const v = verdictFor(occ.score, thresholds);
   const ctx = rankContext(occ, all);
   const [copied, setCopied] = useState<"idle" | "done" | "fail">("idle");
+  // navigator.share exists on phones and not in the server render; decide after mount.
+  const [canShare, setCanShare] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setCanShare(typeof navigator !== "undefined" && typeof navigator.share === "function"), 0);
+    return () => clearTimeout(t);
+  }, []);
+  const ownName = label.toLowerCase() !== occ.title.toLowerCase();
 
-  async function copy() {
+  async function share() {
     const url =
       typeof window !== "undefined"
-        ? window.location.origin + window.location.pathname
+        ? `${window.location.origin}${window.location.pathname}?job=${occ.soc}`
         : "";
-    const text = shareLine(
-      occ.title,
-      occ.score,
-      v.label,
-      ctx.moreExposedThanPct,
-      url,
-    );
+    const text = shareLine(ownName ? `${label}, or ${occ.title.toLowerCase()} to the ONS` : occ.title, occ.score, v.label, ctx.moreExposedThanPct, url);
+    if (canShare) {
+      try {
+        await navigator.share({ text });
+        return;
+      } catch (e) {
+        if ((e as Error).name === "AbortError") return;
+      }
+    }
     try {
       await navigator.clipboard.writeText(text);
       setCopied("done");
@@ -42,14 +55,24 @@ export function ResultCard({ occ, all, thresholds, employmentPeriod }: Props) {
   }
 
   return (
-    <article
-      className={`${styles.card} ${styles[`tone_${v.key}`]}`}
-      aria-live="polite"
-      aria-atomic="true"
-    >
+    <article className={`${styles.card} ${styles[`tone_${v.key}`]}`}>
+      {/* One short line for screen readers on every change, instead of re-reading the whole card. */}
+      <p className="sr-only" aria-live="polite" aria-atomic="true">
+        {isExample ? "Example: " : ""}
+        {label}: {Math.round(occ.score)} out of 100. {v.label}.
+      </p>
       <div className={styles.left}>
         <p className={styles.eyebrow}>
-          Your job: <strong>{occ.title}</strong>
+          {isExample ? (
+            <>
+              <span className={styles.exampleTag}>Example</span> {label}. Type your own job above.
+            </>
+          ) : (
+            <>
+              Your job: <strong>{label}</strong>
+              {ownName ? <span className={styles.ons}> (ONS: {occ.title})</span> : null}
+            </>
+          )}
         </p>
         <div className={styles.gaugeRow}>
           <Gauge score={occ.score} thresholds={thresholds} verdict={v.key} />
@@ -97,12 +120,8 @@ export function ResultCard({ occ, all, thresholds, employmentPeriod }: Props) {
         </p>
 
         <div className={styles.shareRow}>
-          <button type="button" className={styles.share} onClick={copy}>
-            {copied === "done"
-              ? "Copied!"
-              : copied === "fail"
-                ? "Couldn't copy"
-                : "Copy my result"}
+          <button type="button" className={styles.share} onClick={share}>
+            {copied === "done" ? "Copied!" : copied === "fail" ? "Couldn't copy" : canShare ? "Share my result" : "Copy my result"}
           </button>
           <span className={styles.shareText} aria-live="polite">
             {copied === "done"

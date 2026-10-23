@@ -20,9 +20,12 @@
   background: var(--fg);
   color: var(--bg);
 }
-.chip:disabled {
-  opacity: 0.5;
+.chip[aria-busy="true"] {
+  opacity: 0.6;
   cursor: progress;
+}
+.cardAnchor {
+  scroll-margin-top: 12px;
 }
 .error {
   color: var(--risk-ink);

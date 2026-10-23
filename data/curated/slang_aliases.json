@@ -1,167 +1,967 @@
 {
-  "_note": "Hand-curated search aliases: slang, nicknames and everyday job names that do not appear in the ONS coding index. Codes verified against SOC 2020 Volume 1 by tasks_aliases.py, which fails if a code or expected title no longer matches. 'priority' aliases win ties when the same word could code to several groups (e.g. 'nurse').",
-  "aliases": [
-    {"alias": "brickie", "soc2020": "5313", "expect": "Bricklayers"},
-    {"alias": "sparky", "soc2020": "5241", "expect": "Electricians"},
-    {"alias": "sparks", "soc2020": "5241", "expect": "Electricians"},
-    {"alias": "chippy", "soc2020": "5316", "expect": "Carpenters"},
-    {"alias": "cabbie", "soc2020": "8213", "expect": "Taxi"},
-    {"alias": "uber driver", "soc2020": "8213", "expect": "Taxi"},
-    {"alias": "copper", "soc2020": "3312", "expect": "Police"},
-    {"alias": "bobby", "soc2020": "3312", "expect": "Police"},
-    {"alias": "cop", "soc2020": "3312", "expect": "Police"},
-    {"alias": "lawyer", "soc2020": "2412", "expect": "Solicitors", "priority": true},
-    {"alias": "brief", "soc2020": "2412", "expect": "Solicitors"},
-    {"alias": "doctor", "soc2020": "2211", "expect": "Generalist medical", "priority": true},
-    {"alias": "gp", "soc2020": "2211", "expect": "Generalist medical"},
-    {"alias": "quack", "soc2020": "2211", "expect": "Generalist medical"},
-    {"alias": "surgeon", "soc2020": "2212", "expect": "Specialist medical", "priority": true},
-    {"alias": "dinner lady", "soc2020": "9263", "expect": "Kitchen and catering"},
-    {"alias": "binman", "soc2020": "9225", "expect": "Refuse"},
-    {"alias": "bin man", "soc2020": "9225", "expect": "Refuse"},
-    {"alias": "dustman", "soc2020": "9225", "expect": "Refuse"},
-    {"alias": "postie", "soc2020": "9211", "expect": "Postal"},
-    {"alias": "postman", "soc2020": "9211", "expect": "Postal"},
-    {"alias": "trucker", "soc2020": "8211", "expect": "goods vehicle"},
-    {"alias": "lorry driver", "soc2020": "8211", "expect": "goods vehicle", "priority": true},
-    {"alias": "hgv driver", "soc2020": "8211", "expect": "goods vehicle"},
-    {"alias": "van driver", "soc2020": "8214", "expect": "Delivery drivers"},
-    {"alias": "amazon driver", "soc2020": "8214", "expect": "Delivery drivers"},
-    {"alias": "nanny", "soc2020": "6116", "expect": "Nannies"},
-    {"alias": "bouncer", "soc2020": "9231", "expect": "Security"},
-    {"alias": "doorman", "soc2020": "9231", "expect": "Security"},
-    {"alias": "traffic warden", "soc2020": "6312", "expect": "Parking"},
-    {"alias": "lollipop lady", "soc2020": "9232", "expect": "crossing patrol"},
-    {"alias": "lollipop man", "soc2020": "9232", "expect": "crossing patrol"},
-    {"alias": "barista", "soc2020": "9266", "expect": "Coffee shop"},
-    {"alias": "squaddie", "soc2020": "3311", "expect": "Non-commissioned"},
-    {"alias": "soldier", "soc2020": "3311", "expect": "Non-commissioned", "priority": true},
-    {"alias": "fireman", "soc2020": "3313", "expect": "Fire service"},
-    {"alias": "firefighter", "soc2020": "3313", "expect": "Fire service", "priority": true},
-    {"alias": "vet", "soc2020": "2240", "expect": "Veterinarians", "priority": true},
-    {"alias": "teacher", "soc2020": "2313", "expect": "Secondary education", "priority": true},
-    {"alias": "primary teacher", "soc2020": "2314", "expect": "Primary education", "priority": true},
-    {"alias": "nurse", "soc2020": "2237", "expect": "Other registered nursing", "priority": true},
-    {"alias": "staff nurse", "soc2020": "2237", "expect": "Other registered nursing"},
-    {"alias": "hospital nurse", "soc2020": "2237", "expect": "Other registered nursing"},
-    {"alias": "coder", "soc2020": "2134", "expect": "Programmers"},
-    {"alias": "developer", "soc2020": "2134", "expect": "Programmers", "priority": true},
-    {"alias": "dev", "soc2020": "2134", "expect": "Programmers"},
-    {"alias": "software engineer", "soc2020": "2134", "expect": "Programmers"},
-    {"alias": "shop assistant", "soc2020": "7111", "expect": "Sales and retail", "priority": true},
-    {"alias": "shop worker", "soc2020": "7111", "expect": "Sales and retail"},
-    {"alias": "checkout", "soc2020": "7112", "expect": "Retail cashiers"},
-    {"alias": "till operator", "soc2020": "7112", "expect": "Retail cashiers"},
-    {"alias": "accountant", "soc2020": "2421", "expect": "accountants", "priority": true},
-    {"alias": "bean counter", "soc2020": "2421", "expect": "accountants"},
-    {"alias": "hairdresser", "soc2020": "6221", "expect": "Hairdressers", "priority": true},
-    {"alias": "barber", "soc2020": "6221", "expect": "Hairdressers"},
-    {"alias": "hack", "soc2020": "2492", "expect": "journalists"},
-    {"alias": "reporter", "soc2020": "2492", "expect": "journalists"},
-    {"alias": "journalist", "soc2020": "2492", "expect": "journalists", "priority": true},
-    {"alias": "banker", "soc2020": "4123", "expect": "Bank and post office"},
-    {"alias": "bank teller", "soc2020": "4123", "expect": "Bank and post office"},
-    {"alias": "bank cashier", "soc2020": "4123", "expect": "Bank and post office"},
-    {"alias": "bank clerk", "soc2020": "4123", "expect": "Bank and post office", "priority": true},
-    {"alias": "call centre", "soc2020": "7211", "expect": "Call and contact centre", "priority": true},
-    {"alias": "call handler", "soc2020": "7211", "expect": "Call and contact centre"},
-    {"alias": "cleaner", "soc2020": "9223", "expect": "Cleaners and domestics", "priority": true},
-    {"alias": "builder", "soc2020": "5319", "expect": "Construction and building", "priority": true},
-    {"alias": "mechanic", "soc2020": "5231", "expect": "Vehicle technicians", "priority": true},
-    {"alias": "car mechanic", "soc2020": "5231", "expect": "Vehicle technicians"},
-    {"alias": "receptionist", "soc2020": "4216", "expect": "Receptionists", "priority": true},
-    {"alias": "pa", "soc2020": "4215", "expect": "Personal assistants"},
-    {"alias": "secretary", "soc2020": "4215", "expect": "Personal assistants", "priority": true},
-    {"alias": "waiter", "soc2020": "9264", "expect": "Waiters", "priority": true},
-    {"alias": "waitress", "soc2020": "9264", "expect": "Waiters"},
-    {"alias": "barman", "soc2020": "9265", "expect": "Bar staff"},
-    {"alias": "bartender", "soc2020": "9265", "expect": "Bar staff"},
-    {"alias": "carer", "soc2020": "6135", "expect": "Care workers", "priority": true},
-    {"alias": "care worker", "soc2020": "6135", "expect": "Care workers", "priority": true},
-    {"alias": "pilot", "soc2020": "3511", "expect": "Aircraft pilots", "priority": true},
-    {"alias": "data analyst", "soc2020": "3544", "expect": "Data analysts", "priority": true},
-    {"alias": "hr", "soc2020": "3571", "expect": "Human resources"},
-    {"alias": "teaching assistant", "soc2020": "6112", "expect": "Teaching assistants", "priority": true},
-    {"alias": "ta", "soc2020": "6112", "expect": "Teaching assistants"},
-    {"alias": "plumber", "soc2020": "5315", "expect": "Plumbers", "priority": true},
-    {"alias": "bus driver", "soc2020": "8212", "expect": "Bus and coach", "priority": true},
-    {"alias": "train driver", "soc2020": "8231", "expect": "Train and tram", "priority": true},
-    {"alias": "civil servant", "soc2020": "4111", "expect": "National government", "priority": true},
-    {"alias": "bank manager", "soc2020": "1131", "expect": "Financial managers", "priority": true},
-    {"alias": "branch manager", "soc2020": "1131", "expect": "Financial managers"},
-    {"alias": "fraud investigator", "soc2020": "3319", "expect": "Protective service", "priority": true},
-    {"alias": "fraud analyst", "soc2020": "3319", "expect": "Protective service"},
-    {"alias": "mortgage adviser", "soc2020": "2422", "expect": "Finance and investment", "priority": true},
-    {"alias": "mortgage advisor", "soc2020": "2422", "expect": "Finance and investment"},
-    {"alias": "financial advisor", "soc2020": "2422", "expect": "Finance and investment"},
-    {"alias": "compliance officer", "soc2020": "2482", "expect": "regulatory", "priority": true},
-    {"alias": "customer service", "soc2020": "7219", "expect": "Customer service", "priority": true},
-    {"alias": "business analyst", "soc2020": "2431", "expect": "business analysts", "priority": true},
-    {"alias": "project manager", "soc2020": "2440", "expect": "project management", "priority": true},
-    {"alias": "trader", "soc2020": "3531", "expect": "Brokers", "priority": true},
-    {"alias": "architect", "soc2020": "2451", "expect": "Architects", "priority": true},
-    {"alias": "cook", "soc2020": "5435", "expect": "Cooks", "priority": true},
-    {"alias": "chef", "soc2020": "5434", "expect": "Chefs", "priority": true},
-    {"alias": "gardener", "soc2020": "5113", "expect": "Gardeners", "priority": true},
-    {"alias": "decorator", "soc2020": "5323", "expect": "Painters and decorators", "priority": true},
-    {"alias": "painter", "soc2020": "5323", "expect": "Painters and decorators", "priority": true},
-    {"alias": "tattooist", "soc2020": "3411", "expect": "Artists"},
-    {"alias": "tattoo artist", "soc2020": "3411", "expect": "Artists"},
-    {"alias": "personal trainer", "soc2020": "3433", "expect": "Fitness", "priority": true},
-    {"alias": "translator", "soc2020": "3412", "expect": "translators", "priority": true},
-    {"alias": "writer", "soc2020": "3412", "expect": "translators", "priority": true},
-    {"alias": "author", "soc2020": "3412", "expect": "translators"},
-    {"alias": "bookkeeper", "soc2020": "4122", "expect": "Book-keepers", "priority": true},
-    {"alias": "payroll", "soc2020": "4122", "expect": "Book-keepers"},
-    {"alias": "optician", "soc2020": "2252", "expect": "Optometrists"},
-    {"alias": "vicar", "soc2020": "2463", "expect": "Clergy"},
-    {"alias": "priest", "soc2020": "2463", "expect": "Clergy"},
-    {"alias": "imam", "soc2020": "2463", "expect": "Clergy"},
-    {"alias": "undertaker", "soc2020": "6138", "expect": "Undertakers"},
-    {"alias": "tax adviser", "soc2020": "2423", "expect": "Taxation", "priority": true},
-    {"alias": "auditor", "soc2020": "2421", "expect": "accountants"},
-    {"alias": "estate agent", "soc2020": "3555", "expect": "Estate agents", "priority": true},
-    {"alias": "scaffolder", "soc2020": "8151", "expect": "Scaffolders", "priority": true},
-    {"alias": "security guard", "soc2020": "9231", "expect": "Security", "priority": true},
-    {"alias": "warehouse", "soc2020": "9252", "expect": "Warehouse", "priority": true},
-    {"alias": "delivery driver", "soc2020": "8214", "expect": "Delivery drivers", "priority": true},
-    {"alias": "courier", "soc2020": "8214", "expect": "Delivery drivers"},
-    {"alias": "dog walker", "soc2020": "6129", "expect": "Animal care"},
-    {"alias": "nail tech", "soc2020": "6222", "expect": "Beauticians"},
-    {"alias": "beautician", "soc2020": "6222", "expect": "Beauticians", "priority": true},
-    {"alias": "midwife", "soc2020": "2231", "expect": "Midwifery", "priority": true},
-    {"alias": "pharmacist", "soc2020": "2251", "expect": "Pharmacists", "priority": true},
-    {"alias": "paramedic", "soc2020": "2255", "expect": "Paramedics", "priority": true},
-    {"alias": "physio", "soc2020": "2221", "expect": "Physiotherapists"},
-    {"alias": "social worker", "soc2020": "2461", "expect": "Social workers", "priority": true},
-    {"alias": "dentist", "soc2020": "2253", "expect": "Dental practitioners", "priority": true},
-    {"alias": "dental nurse", "soc2020": "6133", "expect": "Dental nurses", "priority": true},
-    {"alias": "economist", "soc2020": "2433", "expect": "economists", "priority": true},
-    {"alias": "data scientist", "soc2020": "2433", "expect": "economists"},
-    {"alias": "graphic designer", "soc2020": "2142", "expect": "Graphic", "priority": true},
-    {"alias": "web developer", "soc2020": "2134", "expect": "Programmers"},
-    {"alias": "it support", "soc2020": "3132", "expect": "IT user support", "priority": true},
-    {"alias": "cyber security", "soc2020": "2135", "expect": "Cyber", "priority": true},
-    {"alias": "marketing", "soc2020": "3554", "expect": "marketing associate", "priority": true},
-    {"alias": "paralegal", "soc2020": "2419", "expect": "Legal professionals", "priority": true},
-    {"alias": "insurance underwriter", "soc2020": "3532", "expect": "underwriters", "priority": true},
-    {"alias": "credit controller", "soc2020": "4121", "expect": "Credit controllers", "priority": true},
-    {"alias": "risk analyst", "soc2020": "2431", "expect": "business analysts"},
-    {"alias": "legal secretary", "soc2020": "4212", "expect": "Legal secretaries", "priority": true},
-    {"alias": "roofer", "soc2020": "5314", "expect": "Roofers", "priority": true},
-    {"alias": "window cleaner", "soc2020": "9221", "expect": "Window cleaners", "priority": true},
-    {"alias": "farmer", "soc2020": "5111", "expect": "Farmers", "priority": true},
-    {"alias": "actor", "soc2020": "3413", "expect": "Actors", "priority": true},
-    {"alias": "police officer", "soc2020": "3312", "expect": "Police", "priority": true},
-    {"alias": "policeman", "soc2020": "3312", "expect": "Police"},
-    {"alias": "electrician", "soc2020": "5241", "expect": "Electricians", "priority": true},
-    {"alias": "carpenter", "soc2020": "5316", "expect": "Carpenters", "priority": true},
-    {"alias": "joiner", "soc2020": "5316", "expect": "Carpenters"},
-    {"alias": "bricklayer", "soc2020": "5313", "expect": "Bricklayers", "priority": true},
-    {"alias": "taxi driver", "soc2020": "8213", "expect": "Taxi", "priority": true},
-    {"alias": "solicitor", "soc2020": "2412", "expect": "Solicitors", "priority": true},
-    {"alias": "barrister", "soc2020": "2411", "expect": "Barristers", "priority": true},
-    {"alias": "programmer", "soc2020": "2134", "expect": "Programmers", "priority": true},
-    {"alias": "software developer", "soc2020": "2134", "expect": "Programmers", "priority": true}
-  ]
+ "_note": "Hand-curated search aliases: slang, nicknames and everyday job names that do not appear in the ONS coding index. Codes verified against SOC 2020 Volume 1 by tasks_aliases.py, which fails if a code or expected title no longer matches. 'priority' aliases win ties when the same word could code to several groups (e.g. 'nurse').",
+ "aliases": [
+  {
+   "alias": "brickie",
+   "soc2020": "5313",
+   "expect": "Bricklayers"
+  },
+  {
+   "alias": "sparky",
+   "soc2020": "5241",
+   "expect": "Electricians"
+  },
+  {
+   "alias": "sparks",
+   "soc2020": "5241",
+   "expect": "Electricians"
+  },
+  {
+   "alias": "chippy",
+   "soc2020": "5316",
+   "expect": "Carpenters"
+  },
+  {
+   "alias": "cabbie",
+   "soc2020": "8213",
+   "expect": "Taxi"
+  },
+  {
+   "alias": "uber driver",
+   "soc2020": "8213",
+   "expect": "Taxi"
+  },
+  {
+   "alias": "copper",
+   "soc2020": "3312",
+   "expect": "Police"
+  },
+  {
+   "alias": "bobby",
+   "soc2020": "3312",
+   "expect": "Police"
+  },
+  {
+   "alias": "cop",
+   "soc2020": "3312",
+   "expect": "Police"
+  },
+  {
+   "alias": "lawyer",
+   "soc2020": "2412",
+   "expect": "Solicitors",
+   "priority": true
+  },
+  {
+   "alias": "brief",
+   "soc2020": "2412",
+   "expect": "Solicitors"
+  },
+  {
+   "alias": "doctor",
+   "soc2020": "2211",
+   "expect": "Generalist medical",
+   "priority": true
+  },
+  {
+   "alias": "gp",
+   "soc2020": "2211",
+   "expect": "Generalist medical"
+  },
+  {
+   "alias": "quack",
+   "soc2020": "2211",
+   "expect": "Generalist medical"
+  },
+  {
+   "alias": "surgeon",
+   "soc2020": "2212",
+   "expect": "Specialist medical",
+   "priority": true
+  },
+  {
+   "alias": "dinner lady",
+   "soc2020": "9263",
+   "expect": "Kitchen and catering"
+  },
+  {
+   "alias": "binman",
+   "soc2020": "9225",
+   "expect": "Refuse"
+  },
+  {
+   "alias": "bin man",
+   "soc2020": "9225",
+   "expect": "Refuse"
+  },
+  {
+   "alias": "dustman",
+   "soc2020": "9225",
+   "expect": "Refuse"
+  },
+  {
+   "alias": "postie",
+   "soc2020": "9211",
+   "expect": "Postal"
+  },
+  {
+   "alias": "postman",
+   "soc2020": "9211",
+   "expect": "Postal"
+  },
+  {
+   "alias": "trucker",
+   "soc2020": "8211",
+   "expect": "goods vehicle"
+  },
+  {
+   "alias": "lorry driver",
+   "soc2020": "8211",
+   "expect": "goods vehicle",
+   "priority": true
+  },
+  {
+   "alias": "hgv driver",
+   "soc2020": "8211",
+   "expect": "goods vehicle"
+  },
+  {
+   "alias": "van driver",
+   "soc2020": "8214",
+   "expect": "Delivery drivers"
+  },
+  {
+   "alias": "amazon driver",
+   "soc2020": "8214",
+   "expect": "Delivery drivers"
+  },
+  {
+   "alias": "nanny",
+   "soc2020": "6116",
+   "expect": "Nannies"
+  },
+  {
+   "alias": "bouncer",
+   "soc2020": "9231",
+   "expect": "Security"
+  },
+  {
+   "alias": "doorman",
+   "soc2020": "9231",
+   "expect": "Security"
+  },
+  {
+   "alias": "traffic warden",
+   "soc2020": "6312",
+   "expect": "Parking"
+  },
+  {
+   "alias": "lollipop lady",
+   "soc2020": "9232",
+   "expect": "crossing patrol"
+  },
+  {
+   "alias": "lollipop man",
+   "soc2020": "9232",
+   "expect": "crossing patrol"
+  },
+  {
+   "alias": "barista",
+   "soc2020": "9266",
+   "expect": "Coffee shop"
+  },
+  {
+   "alias": "squaddie",
+   "soc2020": "3311",
+   "expect": "Non-commissioned"
+  },
+  {
+   "alias": "soldier",
+   "soc2020": "3311",
+   "expect": "Non-commissioned",
+   "priority": true
+  },
+  {
+   "alias": "fireman",
+   "soc2020": "3313",
+   "expect": "Fire service"
+  },
+  {
+   "alias": "firefighter",
+   "soc2020": "3313",
+   "expect": "Fire service",
+   "priority": true
+  },
+  {
+   "alias": "vet",
+   "soc2020": "2240",
+   "expect": "Veterinarians",
+   "priority": true
+  },
+  {
+   "alias": "teacher",
+   "soc2020": "2313",
+   "expect": "Secondary education",
+   "priority": true
+  },
+  {
+   "alias": "primary teacher",
+   "soc2020": "2314",
+   "expect": "Primary education",
+   "priority": true
+  },
+  {
+   "alias": "nurse",
+   "soc2020": "2237",
+   "expect": "Other registered nursing",
+   "priority": true
+  },
+  {
+   "alias": "staff nurse",
+   "soc2020": "2237",
+   "expect": "Other registered nursing"
+  },
+  {
+   "alias": "hospital nurse",
+   "soc2020": "2237",
+   "expect": "Other registered nursing"
+  },
+  {
+   "alias": "coder",
+   "soc2020": "2134",
+   "expect": "Programmers"
+  },
+  {
+   "alias": "developer",
+   "soc2020": "2134",
+   "expect": "Programmers",
+   "priority": true
+  },
+  {
+   "alias": "dev",
+   "soc2020": "2134",
+   "expect": "Programmers"
+  },
+  {
+   "alias": "software engineer",
+   "soc2020": "2134",
+   "expect": "Programmers"
+  },
+  {
+   "alias": "shop assistant",
+   "soc2020": "7111",
+   "expect": "Sales and retail",
+   "priority": true
+  },
+  {
+   "alias": "shop worker",
+   "soc2020": "7111",
+   "expect": "Sales and retail"
+  },
+  {
+   "alias": "checkout",
+   "soc2020": "7112",
+   "expect": "Retail cashiers"
+  },
+  {
+   "alias": "till operator",
+   "soc2020": "7112",
+   "expect": "Retail cashiers"
+  },
+  {
+   "alias": "accountant",
+   "soc2020": "2421",
+   "expect": "accountants",
+   "priority": true
+  },
+  {
+   "alias": "bean counter",
+   "soc2020": "2421",
+   "expect": "accountants"
+  },
+  {
+   "alias": "hairdresser",
+   "soc2020": "6221",
+   "expect": "Hairdressers",
+   "priority": true
+  },
+  {
+   "alias": "barber",
+   "soc2020": "6221",
+   "expect": "Hairdressers"
+  },
+  {
+   "alias": "hack",
+   "soc2020": "2492",
+   "expect": "journalists"
+  },
+  {
+   "alias": "reporter",
+   "soc2020": "2492",
+   "expect": "journalists"
+  },
+  {
+   "alias": "journalist",
+   "soc2020": "2492",
+   "expect": "journalists",
+   "priority": true
+  },
+  {
+   "alias": "banker",
+   "soc2020": "4123",
+   "expect": "Bank and post office"
+  },
+  {
+   "alias": "bank teller",
+   "soc2020": "4123",
+   "expect": "Bank and post office"
+  },
+  {
+   "alias": "bank cashier",
+   "soc2020": "4123",
+   "expect": "Bank and post office"
+  },
+  {
+   "alias": "bank clerk",
+   "soc2020": "4123",
+   "expect": "Bank and post office",
+   "priority": true
+  },
+  {
+   "alias": "call centre",
+   "soc2020": "7211",
+   "expect": "Call and contact centre",
+   "priority": true
+  },
+  {
+   "alias": "call handler",
+   "soc2020": "7211",
+   "expect": "Call and contact centre"
+  },
+  {
+   "alias": "cleaner",
+   "soc2020": "9223",
+   "expect": "Cleaners and domestics",
+   "priority": true
+  },
+  {
+   "alias": "builder",
+   "soc2020": "5319",
+   "expect": "Construction and building",
+   "priority": true
+  },
+  {
+   "alias": "mechanic",
+   "soc2020": "5231",
+   "expect": "Vehicle technicians",
+   "priority": true
+  },
+  {
+   "alias": "car mechanic",
+   "soc2020": "5231",
+   "expect": "Vehicle technicians"
+  },
+  {
+   "alias": "receptionist",
+   "soc2020": "4216",
+   "expect": "Receptionists",
+   "priority": true
+  },
+  {
+   "alias": "pa",
+   "soc2020": "4215",
+   "expect": "Personal assistants"
+  },
+  {
+   "alias": "secretary",
+   "soc2020": "4215",
+   "expect": "Personal assistants",
+   "priority": true
+  },
+  {
+   "alias": "waiter",
+   "soc2020": "9264",
+   "expect": "Waiters",
+   "priority": true
+  },
+  {
+   "alias": "waitress",
+   "soc2020": "9264",
+   "expect": "Waiters"
+  },
+  {
+   "alias": "barman",
+   "soc2020": "9265",
+   "expect": "Bar staff"
+  },
+  {
+   "alias": "bartender",
+   "soc2020": "9265",
+   "expect": "Bar staff"
+  },
+  {
+   "alias": "carer",
+   "soc2020": "6135",
+   "expect": "Care workers",
+   "priority": true
+  },
+  {
+   "alias": "care worker",
+   "soc2020": "6135",
+   "expect": "Care workers",
+   "priority": true
+  },
+  {
+   "alias": "pilot",
+   "soc2020": "3511",
+   "expect": "Aircraft pilots",
+   "priority": true
+  },
+  {
+   "alias": "data analyst",
+   "soc2020": "3544",
+   "expect": "Data analysts",
+   "priority": true
+  },
+  {
+   "alias": "hr",
+   "soc2020": "3571",
+   "expect": "Human resources"
+  },
+  {
+   "alias": "teaching assistant",
+   "soc2020": "6112",
+   "expect": "Teaching assistants",
+   "priority": true
+  },
+  {
+   "alias": "ta",
+   "soc2020": "6112",
+   "expect": "Teaching assistants"
+  },
+  {
+   "alias": "plumber",
+   "soc2020": "5315",
+   "expect": "Plumbers",
+   "priority": true
+  },
+  {
+   "alias": "bus driver",
+   "soc2020": "8212",
+   "expect": "Bus and coach",
+   "priority": true
+  },
+  {
+   "alias": "train driver",
+   "soc2020": "8231",
+   "expect": "Train and tram",
+   "priority": true
+  },
+  {
+   "alias": "civil servant",
+   "soc2020": "4111",
+   "expect": "National government",
+   "priority": true
+  },
+  {
+   "alias": "bank manager",
+   "soc2020": "1131",
+   "expect": "Financial managers",
+   "priority": true
+  },
+  {
+   "alias": "branch manager",
+   "soc2020": "1131",
+   "expect": "Financial managers"
+  },
+  {
+   "alias": "fraud investigator",
+   "soc2020": "3319",
+   "expect": "Protective service",
+   "priority": true
+  },
+  {
+   "alias": "fraud analyst",
+   "soc2020": "3319",
+   "expect": "Protective service"
+  },
+  {
+   "alias": "mortgage adviser",
+   "soc2020": "2422",
+   "expect": "Finance and investment",
+   "priority": true
+  },
+  {
+   "alias": "mortgage advisor",
+   "soc2020": "2422",
+   "expect": "Finance and investment"
+  },
+  {
+   "alias": "financial advisor",
+   "soc2020": "2422",
+   "expect": "Finance and investment"
+  },
+  {
+   "alias": "compliance officer",
+   "soc2020": "2482",
+   "expect": "regulatory",
+   "priority": true
+  },
+  {
+   "alias": "customer service",
+   "soc2020": "7219",
+   "expect": "Customer service",
+   "priority": true
+  },
+  {
+   "alias": "business analyst",
+   "soc2020": "2431",
+   "expect": "business analysts",
+   "priority": true
+  },
+  {
+   "alias": "project manager",
+   "soc2020": "2440",
+   "expect": "project management",
+   "priority": true
+  },
+  {
+   "alias": "trader",
+   "soc2020": "3531",
+   "expect": "Brokers",
+   "priority": true
+  },
+  {
+   "alias": "architect",
+   "soc2020": "2451",
+   "expect": "Architects",
+   "priority": true
+  },
+  {
+   "alias": "cook",
+   "soc2020": "5435",
+   "expect": "Cooks",
+   "priority": true
+  },
+  {
+   "alias": "chef",
+   "soc2020": "5434",
+   "expect": "Chefs",
+   "priority": true
+  },
+  {
+   "alias": "gardener",
+   "soc2020": "5113",
+   "expect": "Gardeners",
+   "priority": true
+  },
+  {
+   "alias": "decorator",
+   "soc2020": "5323",
+   "expect": "Painters and decorators",
+   "priority": true
+  },
+  {
+   "alias": "painter",
+   "soc2020": "5323",
+   "expect": "Painters and decorators",
+   "priority": true
+  },
+  {
+   "alias": "tattooist",
+   "soc2020": "3411",
+   "expect": "Artists"
+  },
+  {
+   "alias": "tattoo artist",
+   "soc2020": "3411",
+   "expect": "Artists"
+  },
+  {
+   "alias": "personal trainer",
+   "soc2020": "3433",
+   "expect": "Fitness",
+   "priority": true
+  },
+  {
+   "alias": "translator",
+   "soc2020": "3412",
+   "expect": "translators",
+   "priority": true
+  },
+  {
+   "alias": "writer",
+   "soc2020": "3412",
+   "expect": "translators",
+   "priority": true
+  },
+  {
+   "alias": "author",
+   "soc2020": "3412",
+   "expect": "translators"
+  },
+  {
+   "alias": "bookkeeper",
+   "soc2020": "4122",
+   "expect": "Book-keepers",
+   "priority": true
+  },
+  {
+   "alias": "payroll",
+   "soc2020": "4122",
+   "expect": "Book-keepers"
+  },
+  {
+   "alias": "optician",
+   "soc2020": "2252",
+   "expect": "Optometrists"
+  },
+  {
+   "alias": "vicar",
+   "soc2020": "2463",
+   "expect": "Clergy"
+  },
+  {
+   "alias": "priest",
+   "soc2020": "2463",
+   "expect": "Clergy"
+  },
+  {
+   "alias": "imam",
+   "soc2020": "2463",
+   "expect": "Clergy"
+  },
+  {
+   "alias": "undertaker",
+   "soc2020": "6138",
+   "expect": "Undertakers"
+  },
+  {
+   "alias": "tax adviser",
+   "soc2020": "2423",
+   "expect": "Taxation",
+   "priority": true
+  },
+  {
+   "alias": "auditor",
+   "soc2020": "2421",
+   "expect": "accountants"
+  },
+  {
+   "alias": "estate agent",
+   "soc2020": "3555",
+   "expect": "Estate agents",
+   "priority": true
+  },
+  {
+   "alias": "scaffolder",
+   "soc2020": "8151",
+   "expect": "Scaffolders",
+   "priority": true
+  },
+  {
+   "alias": "security guard",
+   "soc2020": "9231",
+   "expect": "Security",
+   "priority": true
+  },
+  {
+   "alias": "warehouse",
+   "soc2020": "9252",
+   "expect": "Warehouse",
+   "priority": true
+  },
+  {
+   "alias": "delivery driver",
+   "soc2020": "8214",
+   "expect": "Delivery drivers",
+   "priority": true
+  },
+  {
+   "alias": "courier",
+   "soc2020": "8214",
+   "expect": "Delivery drivers"
+  },
+  {
+   "alias": "dog walker",
+   "soc2020": "6129",
+   "expect": "Animal care"
+  },
+  {
+   "alias": "nail tech",
+   "soc2020": "6222",
+   "expect": "Beauticians"
+  },
+  {
+   "alias": "beautician",
+   "soc2020": "6222",
+   "expect": "Beauticians",
+   "priority": true
+  },
+  {
+   "alias": "midwife",
+   "soc2020": "2231",
+   "expect": "Midwifery",
+   "priority": true
+  },
+  {
+   "alias": "pharmacist",
+   "soc2020": "2251",
+   "expect": "Pharmacists",
+   "priority": true
+  },
+  {
+   "alias": "paramedic",
+   "soc2020": "2255",
+   "expect": "Paramedics",
+   "priority": true
+  },
+  {
+   "alias": "physio",
+   "soc2020": "2221",
+   "expect": "Physiotherapists"
+  },
+  {
+   "alias": "social worker",
+   "soc2020": "2461",
+   "expect": "Social workers",
+   "priority": true
+  },
+  {
+   "alias": "dentist",
+   "soc2020": "2253",
+   "expect": "Dental practitioners",
+   "priority": true
+  },
+  {
+   "alias": "dental nurse",
+   "soc2020": "6133",
+   "expect": "Dental nurses",
+   "priority": true
+  },
+  {
+   "alias": "economist",
+   "soc2020": "2433",
+   "expect": "economists",
+   "priority": true
+  },
+  {
+   "alias": "data scientist",
+   "soc2020": "2433",
+   "expect": "economists"
+  },
+  {
+   "alias": "graphic designer",
+   "soc2020": "2142",
+   "expect": "Graphic",
+   "priority": true
+  },
+  {
+   "alias": "web developer",
+   "soc2020": "2134",
+   "expect": "Programmers"
+  },
+  {
+   "alias": "it support",
+   "soc2020": "3132",
+   "expect": "IT user support",
+   "priority": true
+  },
+  {
+   "alias": "cyber security",
+   "soc2020": "2135",
+   "expect": "Cyber",
+   "priority": true
+  },
+  {
+   "alias": "marketing",
+   "soc2020": "3554",
+   "expect": "marketing associate",
+   "priority": true
+  },
+  {
+   "alias": "paralegal",
+   "soc2020": "2419",
+   "expect": "Legal professionals",
+   "priority": true
+  },
+  {
+   "alias": "insurance underwriter",
+   "soc2020": "3532",
+   "expect": "underwriters",
+   "priority": true
+  },
+  {
+   "alias": "credit controller",
+   "soc2020": "4121",
+   "expect": "Credit controllers",
+   "priority": true
+  },
+  {
+   "alias": "risk analyst",
+   "soc2020": "2431",
+   "expect": "business analysts"
+  },
+  {
+   "alias": "legal secretary",
+   "soc2020": "4212",
+   "expect": "Legal secretaries",
+   "priority": true
+  },
+  {
+   "alias": "roofer",
+   "soc2020": "5314",
+   "expect": "Roofers",
+   "priority": true
+  },
+  {
+   "alias": "window cleaner",
+   "soc2020": "9221",
+   "expect": "Window cleaners",
+   "priority": true
+  },
+  {
+   "alias": "farmer",
+   "soc2020": "5111",
+   "expect": "Farmers",
+   "priority": true
+  },
+  {
+   "alias": "actor",
+   "soc2020": "3413",
+   "expect": "Actors",
+   "priority": true
+  },
+  {
+   "alias": "police officer",
+   "soc2020": "3312",
+   "expect": "Police",
+   "priority": true
+  },
+  {
+   "alias": "policeman",
+   "soc2020": "3312",
+   "expect": "Police"
+  },
+  {
+   "alias": "electrician",
+   "soc2020": "5241",
+   "expect": "Electricians",
+   "priority": true
+  },
+  {
+   "alias": "carpenter",
+   "soc2020": "5316",
+   "expect": "Carpenters",
+   "priority": true
+  },
+  {
+   "alias": "joiner",
+   "soc2020": "5316",
+   "expect": "Carpenters"
+  },
+  {
+   "alias": "bricklayer",
+   "soc2020": "5313",
+   "expect": "Bricklayers",
+   "priority": true
+  },
+  {
+   "alias": "taxi driver",
+   "soc2020": "8213",
+   "expect": "Taxi",
+   "priority": true
+  },
+  {
+   "alias": "solicitor",
+   "soc2020": "2412",
+   "expect": "Solicitors",
+   "priority": true
+  },
+  {
+   "alias": "barrister",
+   "soc2020": "2411",
+   "expect": "Barristers",
+   "priority": true
+  },
+  {
+   "alias": "programmer",
+   "soc2020": "2134",
+   "expect": "Programmers",
+   "priority": true
+  },
+  {
+   "alias": "software developer",
+   "soc2020": "2134",
+   "expect": "Programmers",
+   "priority": true
+  },
+  {
+   "alias": "youtuber",
+   "soc2020": "3412",
+   "expect": "Authors",
+   "note": "ONS codes 'Blogger' to 3412; the video and audio equivalents are treated the same"
+  },
+  {
+   "alias": "vlogger",
+   "soc2020": "3412",
+   "expect": "Authors",
+   "note": "ONS codes 'Blogger' to 3412; the video and audio equivalents are treated the same"
+  },
+  {
+   "alias": "influencer",
+   "soc2020": "3412",
+   "expect": "Authors",
+   "note": "ONS codes 'Blogger' to 3412; the video and audio equivalents are treated the same"
+  },
+  {
+   "alias": "content creator",
+   "soc2020": "3412",
+   "expect": "Authors",
+   "note": "ONS codes 'Blogger' to 3412; the video and audio equivalents are treated the same"
+  },
+  {
+   "alias": "tiktoker",
+   "soc2020": "3412",
+   "expect": "Authors",
+   "note": "ONS codes 'Blogger' to 3412; the video and audio equivalents are treated the same"
+  },
+  {
+   "alias": "streamer",
+   "soc2020": "3412",
+   "expect": "Authors",
+   "note": "ONS codes 'Blogger' to 3412; the video and audio equivalents are treated the same"
+  },
+  {
+   "alias": "podcaster",
+   "soc2020": "3412",
+   "expect": "Authors",
+   "note": "ONS codes 'Blogger' to 3412; the video and audio equivalents are treated the same"
+  },
+  {
+   "alias": "retail",
+   "soc2020": "7111",
+   "expect": "Sales and retail"
+  },
+  {
+   "alias": "i work in a bank",
+   "soc2020": "4123",
+   "expect": "Bank"
+  },
+  {
+   "alias": "bank worker",
+   "soc2020": "4123",
+   "expect": "Bank"
+  },
+  {
+   "alias": "office worker",
+   "soc2020": "4159",
+   "expect": "administrative"
+  },
+  {
+   "alias": "admin",
+   "soc2020": "4159",
+   "expect": "administrative"
+  }
+ ]
 }

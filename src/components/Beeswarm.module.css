@@ -90,6 +90,9 @@
   paint-order: stroke;
   stroke: var(--bg);
   stroke-width: 4px;
+  stroke-linejoin: round;
+  stroke: var(--bg);
+  stroke-width: 4px;
 }
 .leader {
   stroke: var(--fg);
@@ -123,4 +126,10 @@
   overflow: auto;
   padding-left: 20px;
   margin: 8px 0 0;
+}
+
+/* The dot the reader tapped or is hovering. After the verdict colours so it wins. */
+.hit {
+  stroke: var(--fg);
+  stroke-width: 2.5px;
 }
