@@ -1,23 +1,45 @@
 # Will a robot take your job?
 
-A mobile-first data interactive built around the Barclays story of 22 October 2026: around 5,000 jobs,
-about 5% of the bank's global workforce, to go by the end of the year, with the chief executive crediting
-technology and AI. The reader types in their own job and gets a score, a verdict, a rank against every
-other job in Britain, and a sense of what the robots can already do.
+**The brief:** take one of the week's best stories out of its traditional layout and turn it into an interactive that
+keeps tabloid readers scrolling and playing with the data.
+
+**The story:** on 22 October 2026 Barclays said about 5,000 jobs, roughly 5% of its global workforce, will go by the end of
+the year, with AI and technology credited for the savings. The traditional version is a bank's numbers and a chief
+executive's quote. This version asks the reader one question first: what do *you* do?
 
 **Live:** https://robot-job-check.vercel.app
 **Stack:** Next.js 16 (App Router, TypeScript), CSS Modules, D3 as React components, pandas pipeline, Vercel, Upstash Redis for the poll.
 
 ![Hero at 375px](docs/hero.png)
 
-## The story in one paragraph
+## Why this story
 
-Barclays is cutting roughly 5,000 roles and 60% of them are in "support functions, including developers".
-That is an unusual admission: the jobs AI reaches first are not on the shop floor but at the desk. The
-interactive makes that personal. You check your own job, you see bank clerks sitting far to the right of
-bricklayers on a chart of every occupation in the country, and you vote on whether you would trust a robot
-with your money. Every number on the page traces back to a named source in the footer and in
-[`data/README.md`](data/README.md).
+Picking the story was the first editorial decision. The week's front pages were dominated by the war and by energy
+bills, both huge and both hard to make personal with public data in a day. Barclays had three things the others did not:
+
+1. **A question every reader asks themselves.** "Will a robot take your job?" is not a story about a bank, it is a
+   story about the person holding the phone. That is what makes a tabloid reader stop scrolling.
+2. **A villain with a quotable boss.** AI gets the blame in every headline, then the chief executive calls it
+   "the icing on the cake, not the cake". That tension is the spine of the piece.
+3. **Real data to play with.** The ONS counts how many people do every job in Britain, and a published AI exposure
+   index scores every one of those jobs. Join the two and you can answer the reader's question for 408 occupations,
+   not just bank clerks.
+
+## Traditional layout versus this
+
+| Traditional article | This interactive |
+|---|---|
+| Lead: Barclays cuts 5,000 jobs as AI drives savings. | Lead: Will a robot take **your** job? The Barclays numbers sit under the headline as the hook, not the subject. |
+| Numbers: 5,000, 5%, £1.1bn, £2.3bn profit. | Numbers: your score out of 100, your rank of 408, how many people do your job. |
+| Quote from the chief executive. | The quote is one stop on a six-stop timeline the reader scrolls through after checking their own job. |
+| A list of affected departments. | Twenty bank jobs ranked by exposure, with the reader's own job highlighted if it is in the bank. |
+| A graphic, if any: a bar chart of cuts by year. | Every job in Britain as one dot, sized by headcount, with the reader's dot pulsing. Tap any dot to swap jobs. |
+| Reader reacts in the comments. | Reader votes in a live poll and copies a one-line result to the group chat. |
+| Read once. | Search again: nurse, brickie, sparky, the boss. Each search re-lights every chart below it. |
+
+The order of the page is the argument. Hook, then personal, then the story, then the bank, then Britain, then the
+reader's say. Every section after the search pays off the search, because the reader's job stays highlighted all the
+way down.
 
 ## Page, top to bottom
 

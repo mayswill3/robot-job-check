@@ -63,11 +63,11 @@ export function Story({ example, all, thresholds, employmentPeriod, popular, ban
 
   return (
     <>
-      <Section id="checker" kicker="Job checker" title="Check your job" intro={<p>Type what you do. We&rsquo;ll match slang and nicknames too.</p>}>
+      <Section id="checker" kicker="Job checker" title="Check your job" intro={<p>Type what you do. Slang works: brickie, sparky, postie, dinner lady.</p>}>
         <JobChecker example={example} all={all} thresholds={thresholds} employmentPeriod={employmentPeriod} popular={popular} selected={selected} onSelect={onSelect} />
       </Section>
 
-      <Section id="barclays" kicker="The story so far" title="What Barclays said" tone="tint" intro={<p>How a £2bn cost drive turned into {cuts?.display} jobs and a chief executive calling AI &ldquo;the icing on the cake&rdquo;.</p>}>
+      <Section id="barclays" kicker="The story so far" title="What Barclays said" tone="tint" intro={<p>Three years, two rounds of cuts, one bank. How {cuts?.display} jobs came to be on the line, in six stops.</p>}>
         <Timeline items={timeline} />
       </Section>
 
