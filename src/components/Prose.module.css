@@ -1,0 +1,56 @@
+.prose p {
+  font-size: 17px;
+  line-height: 1.5;
+  max-width: 58ch;
+  margin: 0 0 14px;
+}
+.prose p:last-child {
+  margin-bottom: 0;
+}
+.lede {
+  font-weight: 700;
+  font-size: 19px;
+}
+.open {
+  padding-block: 24px 12px;
+}
+.pull {
+  margin: 22px 0 18px;
+  padding: 4px 0 4px 16px;
+  border-left: 6px solid var(--accent);
+  max-width: 58ch;
+}
+.pull blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(24px, 6.5vw, 32px);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.pull figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+@media (min-width: 900px) {
+  .prose p {
+    font-size: 18px;
+  }
+  .lede {
+    font-size: 21px;
+  }
+  .open {
+    padding-block: 32px 16px;
+  }
+  .open .prose {
+    columns: 2;
+    column-gap: 48px;
+    column-rule: 2px solid var(--rule);
+  }
+  .open .prose p {
+    max-width: none;
+    break-inside: avoid;
+  }
+}

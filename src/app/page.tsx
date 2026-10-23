@@ -4,6 +4,9 @@ import { Methodology } from "@/components/Methodology";
 import { bankRoles, dataset, fact, facts, getExample, slim } from "@/lib/data";
 import { formatDate } from "@/lib/format";
 
+const AUTHOR = "William Mays";
+const PUBLISHED = "23 October 2026";
+
 const POPULAR = [
   { label: "Nurse", soc: "2237" },
   { label: "Teacher", soc: "2313" },
@@ -21,7 +24,7 @@ export default function Page() {
   const all = dataset.occupations.map(slim);
   return (
     <main>
-      <Hero cuts={fact("job_cuts")} share={fact("share_of_workforce")} headcount={fact("headcount")} announced={formatDate(facts.announcement_date)} />
+      <Hero cuts={fact("job_cuts")} share={fact("share_of_workforce")} headcount={fact("headcount")} announced={formatDate(facts.announcement_date)} author={AUTHOR} published={PUBLISHED} />
       <Story
         example={getExample()}
         all={all}

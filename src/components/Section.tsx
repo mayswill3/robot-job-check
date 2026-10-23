@@ -6,11 +6,12 @@ interface Props {
   kicker: string;
   title: ReactNode;
   intro?: ReactNode;
+  outro?: ReactNode;
   children: ReactNode;
   tone?: "plain" | "tint";
 }
 
-export function Section({ id, kicker, title, intro, children, tone = "plain" }: Props) {
+export function Section({ id, kicker, title, intro, outro, children, tone = "plain" }: Props) {
   return (
     <section id={id} className={`${styles.section} ${tone === "tint" ? styles.tint : ""}`} aria-labelledby={`${id}-title`}>
       <div className="container">
@@ -20,6 +21,7 @@ export function Section({ id, kicker, title, intro, children, tone = "plain" }: 
         </h2>
         {intro ? <div className={styles.intro}>{intro}</div> : null}
         {children}
+        {outro ? <div className={styles.outro}>{outro}</div> : null}
       </div>
     </section>
   );

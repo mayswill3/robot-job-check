@@ -31,8 +31,8 @@ bills, both huge and both hard to make personal with public data in a day. Barcl
 |---|---|
 | Lead: Barclays cuts 5,000 jobs as AI drives savings. | Lead: Will a robot take **your** job? The Barclays numbers sit under the headline as the hook, not the subject. |
 | Numbers: 5,000, 5%, £1.1bn, £2.3bn profit. | Numbers: your score out of 100, your rank of 408, how many people do your job. |
-| Quote from the chief executive. | The quote is one stop on a six-stop timeline the reader scrolls through after checking their own job. |
-| A list of affected departments. | Twenty bank jobs ranked by exposure, with the reader's own job highlighted if it is in the bank. |
+| Quote from the chief executive. | The quote is one stop on a four-stop timeline the reader scrolls through after checking their own job, then a pull quote on which roles are going. |
+| A list of affected departments. | Ten bank jobs ranked by exposure, with the reader's own job highlighted if it is in the bank. |
 | A graphic, if any: a bar chart of cuts by year. | Every job in Britain as one dot, sized by headcount, with the reader's dot pulsing. Tap any dot to swap jobs. |
 | Reader reacts in the comments. | Reader votes in a live poll and copies a one-line result to the group chat. |
 | Read once. | Search again: nurse, brickie, sparky, the boss. Each search re-lights every chart below it. |
@@ -41,19 +41,24 @@ The order of the page is the argument. Hook, then personal, then the story, then
 reader's say. Every section after the search pays off the search, because the reader's job stays highlighted all the
 way down.
 
+It is still an article. There is a byline, a bold lede and short tabloid paragraphs between every chart: one or two
+to set the chart up, one or two underneath to say what it shows. Every figure in the copy is read from the same
+facts file and dataset as the charts (see `Story.tsx`), so the words cannot drift from the numbers.
+
 ## Page, top to bottom
 
 | # | Section | What it does |
 |---|---|---|
-| 1 | Hero | Headline, the three Barclays numbers (5,000 / 5% / c.93,000), one-line standfirst. Not a 100vh hero. |
+| 1 | Hero and lede | Headline, standfirst, byline, the three Barclays numbers (5,000 / 5% / c.93,000), then five short opening paragraphs. Not a 100vh hero. |
 | 2 | Job checker | Fuzzy search over 408 occupations and 5,256 aliases ("brickie" finds Bricklayers). Popular chips. Preloaded with bank clerks so it is never empty. Result: traffic-light gauge, verdict, rank, "more exposed than X% of jobs", headcount, task breakdown, copy-to-clipboard share line. |
-| 3 | What Barclays said | Four-stop timeline from the 2024 savings plan to the 2027 target. No links on the page; sources in the footer. |
+| 3 | What Barclays said | Four-stop timeline from the 2024 savings plan to the 2027 target, then a pull quote from the chief executive on which roles go. No links on the page; sources in the footer. |
 | 4 | Which bank jobs | Ten bank roles ranked by exposure, horizontal bars, reader's job highlighted. |
 | 5 | League table | Most at risk vs safest ten, toggle, reader's job highlighted or spliced in at its true position. |
 | 6 | Every job in Britain | Force-layout beeswarm: x = exposure, area = headcount, reader's dot pulsing and labelled. Tap a dot to make it your job. |
 | 7 | What the robots can already do | Count-up to 15%, the Eloundou et al. share of tasks an LLM alone could do significantly faster, with the 47 to 56% with-tooling figure. |
 | 8 | Poll | "Would you trust a robot with your money?" Real counts in Redis, one vote per reader per day. |
-| 9 | Where the numbers come from | What the score is and is not, how verdicts are drawn, code mapping, task derivation, every Barclays fact with its primary source, every dataset. Theme toggle lives here. |
+| 9 | What happens next | Closing paragraphs: the rest of the cuts, the 2027 target, and a nudge to check again and share. |
+| 10 | Where the numbers come from | What the score is and is not, how verdicts are drawn, code mapping, task derivation, every Barclays fact with its primary source, every dataset. Theme toggle lives here. |
 
 ## The data
 
@@ -96,8 +101,9 @@ npm run data
   beeswarm never rely on colour alone.
 - **The reader's job is the thread.** One piece of state in `Story.tsx` drives the result card, the bank
   bars, the league table and the beeswarm, so scrolling keeps paying off after the search.
-- **Less is more on the page.** Every section is one sentence of intro, then the data. Sources, caveats and the
-  theme toggle live in the footer so nothing competes with the charts.
+- **Less is more on the page.** Each section is a short paragraph or two of copy, the data, then a short
+  paragraph on what it shows. Sources, caveats and the theme toggle live in the footer so nothing competes
+  with the charts.
 - **Honest about estimates.** Per-task scores are labelled "Estimated" with a one-line explanation under
   the chart, and the methodology says plainly that exposure is not job loss.
 - **Charts are React components that use D3 for maths only.** `d3-shape` draws the gauge arcs,

@@ -10,6 +10,8 @@ import type {
   TimelineItem,
 } from "@/lib/types";
 import { Section } from "./Section";
+import { Lede, Opening, PullQuote } from "./Prose";
+import { formatPeople } from "@/lib/format";
 import { JobChecker } from "./JobChecker";
 import { Timeline } from "./Timeline";
 import { BankRoles } from "./BankRoles";
@@ -91,14 +93,72 @@ export function Story({
     (f) => f.key === "support_functions_share",
   );
   const cuts = facts.facts.find((f) => f.key === "job_cuts");
+  /** Display string for a Barclays fact, by key. Every figure in the copy comes through here or from the dataset. */
+  const f = (key: string) => facts.facts.find((x) => x.key === key)?.display ?? "";
+  const bySoc = (soc: string) => all.find((o) => o.soc === soc);
+  const sc = (soc: string) => Math.round(bySoc(soc)?.score ?? 0);
+  const emp = (soc: string) => formatPeople(bySoc(soc)?.employment);
+  const workers = formatPeople(all.reduce((n, o) => n + (o.employment ?? 0), 0));
+  const bankSafe = bankRoles.filter((r) => r.verdict === "safe").length;
+  const bankLowest = bankRoles.reduce((a, b) => (a.score <= b.score ? a : b));
+  const ceo = facts.facts.find((x) => x.key === "ceo_roles_quote");
+  const icing = f("ceo_quote").replace(/^"AI is |\."$/g, "");
 
   return (
     <>
+      <Opening>
+        <Lede>
+          FIVE THOUSAND Barclays workers will be out of a job by New Year, and
+          the bank&rsquo;s boss says years of spending on technology are the
+          reason.
+        </Lede>
+        <p>
+          The cuts wipe out one in 20 of the bank&rsquo;s{" "}
+          {f("headcount").replace("c.", "")} staff worldwide. They were
+          announced on the same day Barclays reported a {f("q3_profit")}{" "}
+          quarterly profit, up 12 per cent on last year.
+        </p>
+        <p>
+          Six in ten of the jobs going are in what the bank calls support
+          functions. That includes software developers, the people who build
+          the technology.
+        </p>
+        <p>
+          Chief executive C.S. Venkatakrishnan, known as Venkat, insists AI is
+          &ldquo;{icing}&rdquo;. But if a bank can shed thousands of desk jobs
+          while profits rise, what does that mean for yours?
+        </p>
+        <p>
+          We scored all {all.length} jobs in Britain on how much of the work AI
+          can already do. Find yours.
+        </p>
+      </Opening>
+
       <Section
         id="checker"
         kicker="Job checker"
         title="Check your job"
-        intro={<p>Type what you do. Slang works.</p>}
+        intro={
+          <p>
+            Type what you do. Slang works: &ldquo;brickie&rdquo;,
+            &ldquo;sparky&rdquo; and &ldquo;dinner lady&rdquo; all land.
+          </p>
+        }
+        outro={
+          <>
+            <p>
+              <strong>How to read it.</strong> Zero means AI can do none of what
+              you do. A hundred means it overlaps with nearly all of it. We split
+              Britain&rsquo;s {workers} workers into three equal groups: the
+              safest third, the middle third and the most exposed third.
+            </p>
+            <p>
+              Exposed does not mean extinct. Accountants score {sc("2421")} and
+              nobody expects them to vanish. It means a big chunk of the day job
+              could soon be done by, or with, a machine.
+            </p>
+          </>
+        }
       >
         <JobChecker
           example={example}
@@ -116,7 +176,27 @@ export function Story({
         kicker="The story so far"
         title="What Barclays said"
         tone="tint"
-        intro={<p>How {cuts?.display} jobs ended up on the line.</p>}
+        intro={
+          <p>
+            Nobody at Barclays woke up on results day and decided to sack{" "}
+            {cuts?.display} people. The bank promised investors £2bn of savings
+            back in February 2024. The first {f("already_cut")} roles went
+            quietly in the first half of this year. Then came the results call.
+          </p>
+        }
+        outro={
+          <>
+            <PullQuote cite={ceo?.source ?? "Barclays results call"}>
+              {ceo?.display.replace(/^"|"$/g, "")}
+            </PullQuote>
+            <p>
+              That is how Venkat described the jobs going. In plain English:
+              the back office. He said the cuts were the result of
+              &ldquo;investments which we&rsquo;ve made in technology over a
+              number of years&rdquo;.
+            </p>
+          </>
+        }
       >
         <Timeline items={timeline} />
       </Section>
@@ -128,8 +208,22 @@ export function Story({
           title="Which bank jobs are in the firing line?"
           intro={
             <p>
-              {supportShare?.display} of the cuts are in support jobs, Barclays
-              says. Ten bank jobs, scored.
+              So who inside a bank should be worried? {supportShare?.display} of
+              the cuts are in support jobs, Barclays says. We took ten jobs you
+              would find at any high street bank and scored each one the same
+              way as every other job in Britain.
+            </p>
+          }
+          outro={
+            <p>
+              {bankSafe === 0
+                ? "Not one of the ten is in the safe third."
+                : `Only ${bankSafe} of the ten are in the safe third.`}{" "}
+              Branch managers, mortgage advisers and the developers Barclays
+              named score {sc("1131")}, {sc("2422")} and {sc("2134")}. Cashiers
+              and call handlers sit just under the red line. Even the{" "}
+              {bankLowest.role.replace(/ \(.*\)$/, "").toLowerCase()} on the
+              door scores {Math.round(bankLowest.score)}.
             </p>
           }
         >
@@ -143,7 +237,18 @@ export function Story({
           tone="tint"
           intro={
             <p>
-              The ten most exposed jobs, the ten safest, and where yours sits.
+              Pull back and the country splits in two. The most exposed jobs
+              have a degree and a desk: consultants, accountants,
+              psychologists, solicitors. The safest get their hands dirty:
+              roofers, groundworkers, plasterers, cleaners. Flip the toggle to
+              see where yours sits.
+            </p>
+          }
+          outro={
+            <p>
+              The old fear was robots on the factory floor. This machine reads,
+              writes and does sums, so the pecking order flips. A sports player
+              scores {sc("3431")}. A management consultant scores {sc("2431")}.
             </p>
           }
         >
@@ -157,8 +262,18 @@ export function Story({
         title={<>Every job in Britain, one dot each</>}
         intro={
           <p>
-            {all.length} jobs. Further right, more exposed. Bigger dot, more
-            people. Tap any dot.
+            All {all.length} jobs, one dot each. Further right, more exposed.
+            Bigger dot, more people do it. Yours is in red. Tap any dot to
+            check it.
+          </p>
+        }
+        outro={
+          <p>
+            Watch the big dots on the right. Software developers ({emp("2134")}),
+            financial managers ({emp("1131")}) and book-keepers and payroll
+            clerks ({emp("4122")}) are among the largest jobs in the most
+            exposed third. On the left, the two biggest safe jobs are care
+            workers and shop assistants, {emp("6135")} and {emp("7111")} people.
           </p>
         }
       >
@@ -182,8 +297,18 @@ export function Story({
           tone="tint"
           intro={
             <p>
-              {ukStat.display} of UK workers are in jobs with tasks AI could do
-              or help with, says the Government.
+              The Government says {ukStat.display} of UK workers are in jobs with
+              tasks AI could do or help with. That does not mean {ukStat.display}{" "}
+              of jobs disappear. It means the machine takes a slice of the work.
+              How big a slice? Researchers went through every task in the US
+              economy and asked how many a chatbot could do faster, at the same
+              quality.
+            </p>
+          }
+          outro={
+            <p>
+              Put another way: the chatbot on its own is the icing. The software
+              built around it is the cake.
             </p>
           }
         >
@@ -195,10 +320,44 @@ export function Story({
           />
         </Section>
 
-        <Section id="poll" kicker="Your call" title="Have your say">
+        <Section
+          id="poll"
+          kicker="Your call"
+          title="Have your say"
+          intro={
+            <p>
+              Barclays says AI is the icing, not the cake. You have seen the
+              numbers. What do you reckon?
+            </p>
+          }
+        >
           <Poll />
         </Section>
       </div>
+
+      <Section
+        id="next"
+        kicker="What happens next"
+        title="The rest go by Christmas"
+        intro={
+          <>
+            <p>
+              The remainder of the {cuts?.display} roles go before the year is
+              out, with {f("savings_2027")} of savings pencilled in for 2027.
+            </p>
+            <p>
+              One thing is certain. The scores on this page measure what AI can
+              do today. The number next to your job will not stay still.
+            </p>
+            <p>
+              <a href="#checker">Check it again</a>, and send it to the mate who
+              reckons they are safe.
+            </p>
+          </>
+        }
+      >
+        <></>
+      </Section>
     </>
   );
 }

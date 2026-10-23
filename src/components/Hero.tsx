@@ -6,9 +6,11 @@ interface Props {
   share: Fact;
   headcount: Fact;
   announced: string;
+  author: string;
+  published: string;
 }
 
-export function Hero({ cuts, share, headcount, announced }: Props) {
+export function Hero({ cuts, share, headcount, announced, author, published }: Props) {
   return (
     <header className={styles.hero}>
       <div className="container">
@@ -42,8 +44,11 @@ export function Hero({ cuts, share, headcount, announced }: Props) {
             </dl>
           </div>
         </div>
+        <p className={styles.byline}>
+          By <strong>{author}</strong>, {published}
+        </p>
         <p className={styles.meta}>
-          Announced {announced} with Barclays&rsquo; third-quarter results.{" "}
+          Barclays announced the cuts on {announced} with its third-quarter results.{" "}
           <a href="#methodology">Sources and method</a>
         </p>
       </div>
