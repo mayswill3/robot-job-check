@@ -1,0 +1,64 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 2px solid var(--rule);
+}
+.row {
+  display: grid;
+  grid-template-columns: 2.2em 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--surface-2);
+}
+.pos {
+  font-size: 16px;
+  color: var(--muted);
+}
+.name {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.sub {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.you {
+  color: var(--accent-text);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+}
+.chip {
+  font-size: 18px;
+  min-width: 2.4em;
+  text-align: center;
+  padding: 3px 6px;
+}
+.safe {
+  background: var(--safe);
+  color: #fff;
+}
+.watch {
+  background: var(--watch);
+  color: #111;
+}
+.risk {
+  background: var(--risk);
+  color: #fff;
+}
+.highlight {
+  background: var(--surface);
+  outline: 3px solid var(--fg);
+  outline-offset: -1px;
+  padding-inline: 6px;
+}
+.inserted {
+  margin-top: 10px;
+  border-top: 2px dashed var(--muted);
+}

@@ -83,3 +83,37 @@
   font-weight: 400;
   color: var(--muted);
 }
+
+/* Compact: tighter rows on phones, one line per row from 900px. */
+.compact {
+  gap: 8px;
+}
+.compact .track {
+  height: 10px;
+}
+@media (min-width: 900px) {
+  .compact .row {
+    grid-template-columns: minmax(0, 1fr) 150px;
+    grid-template-areas: "label track";
+    align-items: center;
+    column-gap: 14px;
+  }
+  .compact .labelRow {
+    grid-area: label;
+    display: contents;
+  }
+  .compact .label {
+    grid-area: label;
+  }
+  .compact .value {
+    grid-area: track;
+    justify-self: end;
+    font-size: 18px;
+  }
+  .compact .track {
+    grid-area: track;
+    align-self: center;
+    height: 12px;
+    margin-right: 40px;
+  }
+}

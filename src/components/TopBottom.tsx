@@ -3,8 +3,12 @@ import { useState } from "react";
 import type { SlimOccupation } from "@/lib/types";
 import { topList, type ListMode } from "@/lib/ranking";
 import { formatPeople } from "@/lib/format";
-import { BarChart } from "./BarChart";
+import { RankList } from "./RankList";
+import { ShowMore } from "./ShowMore";
 import styles from "./TopBottom.module.css";
+
+const SHORT = 5;
+const FULL = 10;
 
 function ordinal(n: number): string {
   const s = ["th", "st", "nd", "rd"];
@@ -14,7 +18,11 @@ function ordinal(n: number): string {
 
 export function TopBottom({ all, selected, selectedLabel }: { all: SlimOccupation[]; selected: SlimOccupation; selectedLabel?: string }) {
   const [mode, setMode] = useState<ListMode>("risk");
-  const rows = topList(all, mode, 10, selected.soc);
+  const [open, setOpen] = useState(false);
+  const full = topList(all, mode, FULL, selected.soc);
+  // Five rows make the point; the rest are a tap away. The reader's row is always kept.
+  const rows = open ? full : full.filter((r) => r.position <= SHORT || r.isReader);
+  const inserted = rows.find((r) => r.inserted);
   return (
     <div>
       <div className={styles.toggle} role="group" aria-label="Show most at risk or safest jobs">
@@ -25,24 +33,25 @@ export function TopBottom({ all, selected, selectedLabel }: { all: SlimOccupatio
           Safest
         </button>
       </div>
-      <BarChart
+      <RankList
         key={mode}
-        ariaLabel={mode === "risk" ? "Ten most exposed jobs in Britain" : "Ten safest jobs in Britain"}
-        data={rows.map((r) => ({
+        ariaLabel={mode === "risk" ? "Most exposed jobs in Britain" : "Safest jobs in Britain"}
+        rows={rows.map((r) => ({
           id: r.occ.soc,
+          position: r.position,
           label: r.isReader && selectedLabel ? selectedLabel : r.occ.title,
-          prefix: `${r.position}.`,
           sub: `${formatPeople(r.occ.employment)} people`,
           value: r.occ.score,
           verdict: r.occ.verdict,
           highlight: r.isReader,
-          inserted: r.inserted,
+          inserted: r.inserted || (!open && r.isReader && r.position > SHORT),
         }))}
       />
-      {rows.some((r) => r.inserted) ? (
+      {!open ? <ShowMore onClick={() => setOpen(true)}>Show all ten</ShowMore> : null}
+      {inserted ? (
         <p className={styles.note}>
-          Your job is the {ordinal(rows.find((r) => r.inserted)!.position)} {mode === "risk" ? "most exposed" : "safest"} of {all.length}, so
-          we&rsquo;ve slotted it in below the top ten.
+          Your job is the {ordinal(inserted.position)} {mode === "risk" ? "most exposed" : "safest"} of {all.length}, so we&rsquo;ve slotted it
+          in.
         </p>
       ) : null}
     </div>
