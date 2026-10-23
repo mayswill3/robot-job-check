@@ -119,13 +119,14 @@
 }
 .details summary {
   cursor: pointer;
-  font-weight: 600;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  padding: 8px 0;
 }
-.textList {
-  max-height: 260px;
-  overflow: auto;
-  padding-left: 20px;
-  margin: 8px 0 0;
+.details summary:hover {
+  color: var(--accent-text);
 }
 
 /* The dot the reader tapped or is hovering. After the verdict colours so it wins. */

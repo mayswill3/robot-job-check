@@ -7,6 +7,7 @@ import type { SlimOccupation, Thresholds } from "@/lib/types";
 import { VERDICTS } from "@/lib/verdict";
 import { formatPeople } from "@/lib/format";
 import { useMeasure } from "@/hooks/useMeasure";
+import { LeagueTable } from "./LeagueTable";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import styles from "./Beeswarm.module.css";
 
@@ -184,18 +185,8 @@ export function Beeswarm({ all, selected, thresholds, onPick }: Props) {
         )}
       </div>
       <details className={styles.details} onToggle={(e) => setListOpen((e.currentTarget as HTMLDetailsElement).open)}>
-        <summary>Read this chart as a list</summary>
-        {listOpen ? (
-          <ol className={styles.textList}>
-            {[...all]
-              .sort((a, b) => a.rank - b.rank)
-              .map((o) => (
-                <li key={o.soc}>
-                  {o.title}: {Math.round(o.score)}/100, {formatPeople(o.employment)} people
-                </li>
-              ))}
-          </ol>
-        ) : null}
+        <summary>See the full league table of all {all.length} jobs</summary>
+        {listOpen ? <LeagueTable all={all} selected={selected} onPick={onPick} /> : null}
       </details>
     </div>
   );

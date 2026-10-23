@@ -54,7 +54,7 @@ facts file and dataset as the charts (see `Story.tsx`), so the words cannot drif
 | 3 | What Barclays said | Four-stop timeline from the 2024 savings plan to the 2027 target, then a pull quote from the chief executive on which roles go. No links on the page; sources in the footer. |
 | 4 | Which bank jobs | Ten bank roles ranked by exposure, horizontal bars, reader's job highlighted. |
 | 5 | League table | Most at risk vs safest ten, toggle, reader's job highlighted or spliced in at its true position. |
-| 6 | Every job in Britain | Force-layout beeswarm: x = exposure, area = headcount, reader's dot pulsing and labelled. Dots are hit-tested to the nearest dot so small ones are tappable; a tap shows the job, "Make this my job" re-runs the checker. |
+| 6 | Every job in Britain | Force-layout beeswarm: x = exposure, area = headcount, reader's dot pulsing and labelled. Dots are hit-tested to the nearest dot so small ones are tappable; a tap shows the job, "Make this my job" re-runs the checker. Below it, the full league table of all 408 jobs: filter by word or band, score bars, "Find my job", and a Check button on every row. The table doubles as the chart's text alternative. |
 | 7 | What the robots can already do | Count-up to 15%, the Eloundou et al. share of tasks an LLM alone could do significantly faster, with the 47 to 56% with-tooling figure. |
 | 8 | Poll | "Would you trust a robot with your money?" Real counts in Redis, one vote per reader per day. |
 | 9 | What happens next | Closing paragraphs: the rest of the cuts, the 2027 target, and a nudge to check again and share. |
