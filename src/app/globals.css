@@ -179,3 +179,25 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Desktop: widen the page and let sections sit side by side. */
+@media (min-width: 900px) {
+  :root {
+    --measure: 1040px;
+    --gutter: 32px;
+  }
+  body {
+    font-size: 18px;
+  }
+  .two-up {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .two-up > section {
+    min-width: 0;
+  }
+  .two-up > section + section {
+    border-left: 4px solid var(--rule);
+  }
+}

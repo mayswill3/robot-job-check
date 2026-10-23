@@ -56,3 +56,26 @@
   color: var(--muted);
   margin: 10px 0 0;
 }
+
+@media (min-width: 900px) {
+  .hero {
+    padding-block: 16px 32px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .headline {
+    font-size: clamp(72px, 7.4vw, 104px);
+  }
+  .standfirst {
+    font-size: 22px;
+    max-width: none;
+    margin-top: 0;
+  }
+  .numbers dd {
+    font-size: 56px;
+  }
+}

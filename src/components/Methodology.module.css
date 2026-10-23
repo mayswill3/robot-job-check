@@ -27,3 +27,18 @@
   color: var(--muted);
   margin-top: 24px;
 }
+
+@media (min-width: 900px) {
+  .body {
+    columns: 2;
+    column-gap: 48px;
+  }
+  .body p,
+  .body li,
+  .body h3 {
+    break-inside: avoid;
+  }
+  .body h3:first-child {
+    margin-top: 0;
+  }
+}

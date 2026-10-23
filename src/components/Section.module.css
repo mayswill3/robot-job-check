@@ -16,3 +16,12 @@
 .intro p:last-child {
   margin-bottom: 0;
 }
+
+@media (min-width: 900px) {
+  .section {
+    padding-block: 40px 48px;
+  }
+  .title {
+    font-size: 52px;
+  }
+}
