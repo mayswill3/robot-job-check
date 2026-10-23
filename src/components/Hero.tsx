@@ -1,0 +1,50 @@
+import type { Fact } from "@/lib/types";
+import { ThemeToggle } from "./ThemeToggle";
+import styles from "./Hero.module.css";
+
+interface Props {
+  cuts: Fact;
+  share: Fact;
+  headcount: Fact;
+  announced: string;
+}
+
+export function Hero({ cuts, share, headcount, announced }: Props) {
+  return (
+    <header className={styles.hero}>
+      <div className="container">
+        <div className={styles.topbar}>
+          <span className="kicker">Data investigation</span>
+          <ThemeToggle />
+        </div>
+        <h1 className={styles.headline}>
+          Will a robot
+          <br />
+          take <span className={styles.red}>your</span> job?
+        </h1>
+        <p className={styles.standfirst}>
+          Barclays says AI will help it axe 5,000 jobs by Christmas. Type in what you do and find out if the machines are coming
+          for you next.
+        </p>
+        <dl className={styles.numbers}>
+          <div>
+            <dt>{cuts.label}</dt>
+            <dd className="num">{cuts.display}</dd>
+          </div>
+          <div>
+            <dt>{share.label}</dt>
+            <dd className="num">{share.display}</dd>
+          </div>
+          <div>
+            <dt>{headcount.label}</dt>
+            <dd className="num">{headcount.display.replace("c.", "")}</dd>
+          </div>
+        </dl>
+        <p className={styles.meta}>
+          Announced {announced} with Barclays&rsquo; third-quarter results.{" "}
+          <a href="#methodology">Sources and method</a>
+        </p>
+      </div>
+    </header>
+  );
+}

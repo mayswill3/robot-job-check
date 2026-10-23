@@ -1,0 +1,126 @@
+.wrap {
+  width: 100%;
+}
+.svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  touch-action: pan-y;
+}
+.band_safe {
+  fill: var(--safe);
+  opacity: 0.08;
+}
+.band_watch {
+  fill: var(--watch);
+  opacity: 0.1;
+}
+.band_risk {
+  fill: var(--risk);
+  opacity: 0.08;
+}
+.bandLabel {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  fill: var(--fg);
+}
+.axis {
+  font-size: 12px;
+  fill: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.axisTitle {
+  font-size: 12px;
+  fill: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.dot {
+  stroke: var(--bg);
+  stroke-width: 0.8;
+  cursor: pointer;
+}
+.dot_safe {
+  fill: var(--dot-safe);
+}
+.dot_watch {
+  fill: var(--dot-watch);
+}
+.dot_risk {
+  fill: var(--dot-risk);
+}
+.me {
+  stroke: var(--fg);
+  stroke-width: 3;
+}
+.ring {
+  fill: none;
+  stroke: var(--fg);
+  stroke-width: 2;
+}
+.ring2 {
+  fill: none;
+  stroke: var(--fg);
+  stroke-width: 1;
+  opacity: 0.5;
+}
+.pulse {
+  animation: pulse 1.8s ease-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+.youLabel text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  fill: var(--fg);
+  letter-spacing: 0.08em;
+  paint-order: stroke;
+  stroke: var(--bg);
+  stroke-width: 4px;
+}
+.leader {
+  stroke: var(--fg);
+  stroke-width: 2;
+}
+.tip {
+  min-height: 2.6em;
+  font-size: 14px;
+  margin-top: 6px;
+  padding: 6px 0;
+  border-top: 2px solid var(--rule);
+}
+.tipBtn {
+  background: none;
+  border: 2px solid var(--rule);
+  padding: 2px 8px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-left: 4px;
+}
+.details {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.textList {
+  max-height: 260px;
+  overflow: auto;
+  padding-left: 20px;
+  margin: 8px 0 0;
+}

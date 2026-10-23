@@ -1,0 +1,43 @@
+.fig {
+  margin: 0 auto;
+  width: 100%;
+}
+.svg {
+  display: block;
+  overflow: visible;
+}
+.band_safe {
+  fill: var(--safe);
+}
+.band_watch {
+  fill: var(--watch);
+}
+.band_risk {
+  fill: var(--risk);
+}
+.tick {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  fill: var(--fg);
+}
+.needle polygon,
+.needle circle {
+  fill: var(--fg);
+}
+.needle {
+  transform-origin: 0 0;
+  transform-box: view-box;
+}
+.score {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 44px;
+  fill: var(--fg);
+}
+.outof {
+  font-size: 12px;
+  fill: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}

@@ -1,0 +1,31 @@
+.wrap {
+  display: grid;
+  gap: 14px;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  border: 2px solid var(--rule);
+  background: var(--bg);
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 999px;
+}
+.chip[aria-pressed="true"] {
+  background: var(--fg);
+  color: var(--bg);
+}
+.chip:disabled {
+  opacity: 0.5;
+  cursor: progress;
+}
+.error {
+  color: var(--risk-ink);
+  font-size: 14px;
+  margin: 0;
+}

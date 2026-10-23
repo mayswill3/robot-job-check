@@ -1,0 +1,23 @@
+.group {
+  display: inline-flex;
+  border: 2px solid var(--rule);
+  padding: 0;
+  margin: 0;
+}
+.btn {
+  background: var(--bg);
+  border: 0;
+  padding: 4px 10px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.btn + .btn {
+  border-left: 2px solid var(--rule);
+}
+.btn[aria-pressed="true"] {
+  background: var(--fg);
+  color: var(--bg);
+}

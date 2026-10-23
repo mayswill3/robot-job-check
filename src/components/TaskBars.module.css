@@ -1,0 +1,54 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.row {
+  display: grid;
+  grid-template-columns: 1fr 44px;
+  grid-template-areas: "task val" "bar val";
+  align-items: center;
+  column-gap: 10px;
+  row-gap: 4px;
+}
+.task {
+  grid-area: task;
+  font-size: 15px;
+  line-height: 1.3;
+}
+.barWrap {
+  grid-area: bar;
+  height: 10px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.bar {
+  display: block;
+  height: 100%;
+  transition: width 600ms ease-out;
+}
+.safe {
+  background: var(--safe);
+}
+.watch {
+  background: var(--watch);
+}
+.risk {
+  background: var(--risk);
+}
+.val {
+  grid-area: val;
+  font-size: 24px;
+  text-align: right;
+}
+.ink_safe {
+  color: var(--safe-ink);
+}
+.ink_watch {
+  color: var(--watch-ink);
+}
+.ink_risk {
+  color: var(--risk-ink);
+}
