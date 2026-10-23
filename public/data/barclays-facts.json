@@ -1,0 +1,174 @@
+{
+ "_note": "Every fact used on the page about Barclays, each with the source it was read from. Figures reported by more than one outlet carry the primary outlet first.",
+ "company": "Barclays",
+ "announcement_date": "2026-10-22",
+ "facts": [
+  {
+   "key": "job_cuts",
+   "label": "Jobs to go by end of 2026",
+   "value": 5000,
+   "display": "5,000",
+   "unit": "roles",
+   "quote": "British lender Barclays has revealed plans to cut 5,000 jobs — about 5% of its total workforce — as part of an artificial intelligence-linked efficiency push.",
+   "source": "CNBC, 22 October 2026",
+   "source_url": "https://www.cnbc.com/2026/10/22/barclays-ai-jobs-cuts.html"
+  },
+  {
+   "key": "share_of_workforce",
+   "label": "Share of global workforce",
+   "value": 5,
+   "display": "5%",
+   "unit": "percent",
+   "quote": "The FTSE 100 bank's reductions will cover five per cent of the group's global workforce and are expected to be mainly concentrated in support functions, including developers.",
+   "source": "City A.M., 22 October 2026",
+   "source_url": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/"
+  },
+  {
+   "key": "headcount",
+   "label": "Barclays colleagues worldwide",
+   "value": 93000,
+   "display": "c.93,000",
+   "unit": "people",
+   "quote": "Providing employment to c.93,000 colleagues globally (Barclays PLC Annual Report 2025). The Companies Act headcount measure in the same report, which counts people rather than full-time equivalents and includes colleagues on long-term leave, is 98,141 at 31 December 2025.",
+   "source": "Barclays PLC Annual Report 2025",
+   "source_url": "https://home.barclays/content/dam/home-barclays/documents/investor-relations/reports-and-events/annual-reports/2025/Barclays-PLC-Annual-Report-2025.pdf"
+  },
+  {
+   "key": "already_cut",
+   "label": "Roles already gone in H1 2026",
+   "value": 1000,
+   "display": "1,000",
+   "unit": "roles",
+   "quote": "Around 1,000 roles were cut in the first half, the bank said, with the remaining balance to be cut in the third and fourth quarter.",
+   "source": "City A.M., 22 October 2026",
+   "source_url": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/"
+  },
+  {
+   "key": "support_functions_share",
+   "label": "Share of cuts in support functions",
+   "value": 60,
+   "display": "60%",
+   "unit": "percent",
+   "quote": "Staff reduction: approximately 5,000 full-time employees, with 60% of the impact occurring in support functions. (Q3 2026 earnings call.) CNBC: About 60% of the cuts are expected to be in support functions, including developers, according to the earnings presentation.",
+   "source": "Barclays Q3 2026 earnings call transcript (The Motley Fool) and CNBC, 22 October 2026",
+   "source_url": "https://www.fool.com/earnings/call-transcripts/2026/10/22/barclays-bcs-q3-2026-earnings-call-transcript/"
+  },
+  {
+   "key": "savings_2027",
+   "label": "Gross efficiency savings targeted for 2027",
+   "value": 1100000000,
+   "display": "£1.1bn",
+   "unit": "GBP",
+   "quote": "Having increased this for 2026 alone, we expect more than GBP 1.1 billion of gross efficiency savings in 2027. These actions involve an expected reduction of circa 5,000 full-time employees.",
+   "source": "Barclays Q3 2026 earnings call, 22 October 2026 (transcript via The Motley Fool)",
+   "source_url": "https://www.fool.com/earnings/call-transcripts/2026/10/22/barclays-bcs-q3-2026-earnings-call-transcript/"
+  },
+  {
+   "key": "q3_profit",
+   "label": "Q3 2026 pre-tax profit",
+   "value": 2300000000,
+   "display": "£2.3bn",
+   "unit": "GBP",
+   "quote": "Barclays' third-quarter pre-tax profit rose 12% year on year to £2.3 billion ($3.1 billion), matching LSEG-compiled forecasts.",
+   "source": "CNBC, 22 October 2026",
+   "source_url": "https://www.cnbc.com/2026/10/22/barclays-ai-jobs-cuts.html"
+  },
+  {
+   "key": "ceo_quote",
+   "label": "CEO on AI's role",
+   "value": null,
+   "display": "\"AI is the icing on the cake, not the cake.\"",
+   "unit": "quote",
+   "quote": "Venkat said the use of AI in the firm was \"the icing on the cake, not the cake\".",
+   "source": "C.S. Venkatakrishnan, Barclays group chief executive, quoted by City A.M., 22 October 2026",
+   "source_url": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/"
+  },
+  {
+   "key": "ceo_roles_quote",
+   "label": "CEO on which roles",
+   "value": null,
+   "display": "\"Primarily related to operational and functional roles that service our business.\"",
+   "unit": "quote",
+   "quote": "\"They're across the bank and they are primarily related to operational and functional roles that service our business… it's a result of the investments which we've made in technology over a number of years and which we'll continue to make,\" Barclays boss CS Venkatakrishnan, known as Venkat, said.",
+   "source": "City A.M., 22 October 2026",
+   "source_url": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/"
+  }
+ ],
+ "timeline": [
+  {
+   "date": "2024-01-09",
+   "label": "Barclays is estimated to have cut about 5,000 jobs worldwide in 2023, roughly 5% of staff, in a cost-cutting drive that began in late 2023.",
+   "source": "Euronews, 9 January 2024",
+   "source_url": "https://www.euronews.com/2024/01/09/barclays-slashes-5000-jobs-in-2023-in-reshaping-and-efficiency-bid"
+  },
+  {
+   "date": "2024-02-20",
+   "label": "Investor update: Barclays sets a target of £2bn of gross efficiency savings by 2026 across people, property and infrastructure.",
+   "source": "LBC, 20 February 2024",
+   "source_url": "https://www.lbc.co.uk/article/a351116e7ea84ea98ce1366a464cb61e-5Hjcf2F_2/"
+  },
+  {
+   "date": "2026-02-10",
+   "label": "Full-year 2025 results. The annual report puts the workforce at c.93,000 colleagues worldwide.",
+   "source": "Barclays PLC Annual Report 2025",
+   "source_url": "https://home.barclays/content/dam/home-barclays/documents/investor-relations/reports-and-events/annual-reports/2025/Barclays-PLC-Annual-Report-2025.pdf"
+  },
+  {
+   "date": "2026-06-30",
+   "label": "Around 1,000 roles have already gone in the first half of 2026.",
+   "source": "City A.M., 22 October 2026",
+   "source_url": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/"
+  },
+  {
+   "date": "2026-10-22",
+   "label": "Q3 results: about 5,000 roles, roughly 5% of the global workforce, to go by the end of 2026. Around 60% are in support functions, including developers.",
+   "source": "CNBC, 22 October 2026",
+   "source_url": "https://www.cnbc.com/2026/10/22/barclays-ai-jobs-cuts.html"
+  },
+  {
+   "date": "2026-10-22",
+   "label": "Chief executive C.S. Venkatakrishnan: AI is 'the icing on the cake, not the cake'. The roles are 'primarily operational and functional roles that service our business'.",
+   "source": "City A.M., 22 October 2026",
+   "source_url": "https://www.cityam.com/barclays-profit-misses-after-investment-bank-comes-up-short/"
+  },
+  {
+   "date": "2027-12-31",
+   "label": "Target: more than £1.1bn of gross efficiency savings in 2027.",
+   "source": "Barclays Q3 2026 earnings call (transcript via The Motley Fool)",
+   "source_url": "https://www.fool.com/earnings/call-transcripts/2026/10/22/barclays-bcs-q3-2026-earnings-call-transcript/"
+  }
+ ],
+ "context_stats": [
+  {
+   "key": "tasks_faster_llm",
+   "label": "Share of US work tasks an LLM alone could do significantly faster at the same quality",
+   "value": 15,
+   "display": "15%",
+   "quote": "Our analysis suggests that, with access to an LLM, about 15% of all worker tasks in the US could be completed significantly faster at the same level of quality.",
+   "source": "Eloundou, Manning, Mishkin and Rock, 'GPTs are GPTs' (2023; Science, 2024)",
+   "source_url": "https://arxiv.org/abs/2303.10130"
+  },
+  {
+   "key": "tasks_faster_llm_tools",
+   "label": "Share of tasks with LLM-powered software on top",
+   "value": 47,
+   "display": "47 to 56%",
+   "range": [
+    47,
+    56
+   ],
+   "quote": "When incorporating software and tooling built on top of LLMs, this share increases to between 47 and 56% of all tasks.",
+   "source": "Eloundou, Manning, Mishkin and Rock, 'GPTs are GPTs' (2023; Science, 2024)",
+   "source_url": "https://arxiv.org/abs/2303.10130"
+  },
+  {
+   "key": "uk_workers_exposed",
+   "label": "UK workers in occupations with tasks AI could perform or enhance",
+   "value": 70,
+   "display": "70%",
+   "quote": "Around 70% of UK workers are in occupations containing tasks that AI could potentially perform or enhance, according to IMF estimates.",
+   "source": "Department for Science, Innovation and Technology and AI Security Institute, 'Assessment of AI capabilities and the impact on the UK labour market', 28 January 2026",
+   "source_url": "https://www.gov.uk/government/publications/assessment-of-ai-capabilities-and-the-impact-on-the-uk-labour-market/assessment-of-ai-capabilities-and-the-impact-on-the-uk-labour-market"
+  }
+ ]
+}

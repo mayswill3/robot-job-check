@@ -1,0 +1,36 @@
+{
+  "_note": "Rule-based lexicon used to DERIVE per-task exposure, because neither the DfE/Felten index nor the ONS automation data score individual tasks. Each ONS SOC 2020 task sentence is matched against these patterns (case-insensitive regex, word boundaries). Signal = sum of matched weights, clipped to [-1, +1]. Task exposure = occupation score + 25 x signal, clipped to [1, 99]. Positive weights follow the Eloundou et al. (2023) rubric: tasks that are language, information or routine-document work an LLM could do or speed up. Negative weights mark tasks that need a body in the room: physical work, manual dexterity, hands-on care, driving, in-person supervision. Every derived task is labelled derivation='keyword-rule' in the JSON and 'Estimated' in the UI.",
+  "patterns": [
+    {"pattern": "\\b(writes?|drafts?|prepares?) (reports?|letters?|documents?|correspondence|minutes|briefs?|proposals?|contracts?|specifications?|articles?)\\b", "weight": 0.9, "why": "document drafting"},
+    {"pattern": "\\b(analys(es|is|ing)|interprets?|evaluates?|assesses?) (data|information|results|statistics|figures|accounts|records|trends|evidence)\\b", "weight": 0.8, "why": "information analysis"},
+    {"pattern": "\\b(compiles?|collates?|maintains?|updates?|keeps?|enters?|inputs?|processes?|checks?|verifies?|files?) (records?|data|information|accounts|ledgers?|databases?|details|files|documentation|invoices?|claims?|forms?|statistics)\\b", "weight": 0.8, "why": "record keeping and data entry"},
+    {"pattern": "\\b(calculates?|computes?|reconciles?|codes?|classif(y|ies)|tabulates?|forecasts?)\\b", "weight": 0.7, "why": "routine calculation"},
+    {"pattern": "\\b(translates?|transcribes?|summaris(es|ing)|proofreads?|edits?|types?|word.process)", "weight": 0.9, "why": "text transformation"},
+    {"pattern": "\\b(deals? with|handles?|answers?|responds? to|receives?) (enquiries|queries|correspondence|complaints|telephone calls|incoming (telephone )?calls|requests?)\\b", "weight": 0.7, "why": "scripted customer communication"},
+    {"pattern": "\\b(advises?|informs?|explains?|recommends?) (customers?|clients?|callers?|the public|members|users)\\b", "weight": 0.5, "why": "information-giving"},
+    {"pattern": "\\b(research(es)?|reviews? literature|studies|investigates? (data|trends|markets|literature))\\b", "weight": 0.6, "why": "desk research"},
+    {"pattern": "\\b(schedul(es|ing)|arranges? (appointments|meetings|travel|rotas?)|books? (appointments|travel)|timetabl)", "weight": 0.6, "why": "scheduling"},
+    {"pattern": "\\b(programm(es|ing)|writes? (code|software|programs)|develops? software|tests? (software|code|programs)|debugs?)\\b", "weight": 0.7, "why": "coding"},
+    {"pattern": "\\b(prepares?|produces?|monitors?|examines?|audits?) (budgets?|accounts|financial (statements|reports|forecasts)|estimates|quotations|tenders)\\b", "weight": 0.7, "why": "financial paperwork"},
+    {"pattern": "\\b(designs?|plans?) (campaigns?|layouts?|publicity|marketing|surveys|questionnaires|courses|lessons|curricul)", "weight": 0.4, "why": "planning and content design"},
+    {"pattern": "\\b(sells?|promotes?|markets?) (products?|services|goods|policies|insurance|financial)", "weight": 0.3, "why": "scripted selling"},
+    {"pattern": "\\b(legal|regulatory|statutory|legislation|contracts?|case law|precedents?)\\b", "weight": 0.3, "why": "rule-based text work"},
+
+    {"pattern": "\\b(lifts?|carr(y|ies)|loads?|unloads?|moves?|stacks?|packs?|unpacks?|sorts?) (goods|materials?|loads?|boxes|luggage|parcels?|items|stock|refuse|waste|equipment|furniture)", "weight": -0.9, "why": "manual handling"},
+    {"pattern": "\\b(operates?|drives?|manoeuvres?|controls?|sets? up|adjusts?) (a |an |the )?(machines?|machinery|equipment|vehicles?|lorr(y|ies)|trucks?|buses|trains?|cranes?|forklifts?|tractors?|plant|tools?|lathes?|presses|aircraft|vessels?)", "weight": -0.9, "why": "machine or vehicle operation"},
+    {"pattern": "\\b(drives?|driving|rides?|pilots?|steers?|navigates?)\\b", "weight": -0.8, "why": "driving"},
+    {"pattern": "\\b(cleans?|cleaning|washes?|sweeps?|scrubs?|polishes?|disinfects?|vacuums?|mops?|launders?|irons?)\\b", "weight": -0.9, "why": "cleaning"},
+    {"pattern": "\\b(installs?|fits?|assembles?|erects?|dismantles?|repairs?|mends?|services?|maintains?|welds?|solders?|wires?|plumbs?|lays?|paints?|plasters?|tiles?|cuts?|saws?|drills?|sands?|grinds?|sews?|stitches?|knits?|carves?|moulds?|casts?|forges?) ", "weight": -0.8, "why": "skilled manual trade work"},
+    {"pattern": "\\b(cooks?|bakes?|prepares? (food|meals|dishes|ingredients)|serves? (food|drinks?|meals|customers at tables?)|washes? up|clears? tables?)", "weight": -0.8, "why": "food preparation and service"},
+    {"pattern": "\\b(examines?|treats?|diagnoses?|nurses?|bathes?|dresses?|feeds?|lifts?|washes?|administers? (medication|drugs|injections|treatment)|performs? (surgery|operations?|procedures?)|takes? (blood|samples|x-rays|temperature)|physically)\\b", "weight": -0.7, "why": "hands-on clinical or personal care"},
+    {"pattern": "\\b(patients?|residents?|the elderly|children|pupils|infants|animals|livestock|crops|plants)\\b", "weight": -0.4, "why": "in-person care, teaching or husbandry"},
+    {"pattern": "\\b(patrols?|guards?|arrests?|detains?|restrains?|searches? (premises|vehicles|people|baggage)|attends? (incidents|emergencies|fires|accidents)|rescues?|extinguishes?|fights? fires)", "weight": -0.9, "why": "physical protective duties"},
+    {"pattern": "\\b(supervises?|directs?|leads?|motivates?|coaches?|mentors?|trains?|recruits?|disciplines?) (staff|employees|workers|a team|teams|personnel|trainees|apprentices|players|athletes|volunteers)", "weight": -0.4, "why": "people leadership"},
+    {"pattern": "\\b(negotiates?|liaises?|consults? with|represents? (clients?|the (organisation|company|employer|union))|chairs? meetings?|presents? (cases?|evidence)|interviews?|counsels?|mediates?|persuades?)", "weight": -0.3, "why": "interpersonal judgement"},
+    {"pattern": "\\b(performs?|acts?|sings?|dances?|plays? (an instrument|music|sport|matches)|competes?|entertains?|presents? (programmes|shows|television|radio))", "weight": -0.6, "why": "live performance"},
+    {"pattern": "\\b(inspects?|tests?|samples?|measures?|surveys?) (sites?|buildings?|premises|structures?|land|vehicles?|equipment|machinery|installations?|goods|products|soil|water|crops)", "weight": -0.5, "why": "physical inspection"},
+    {"pattern": "\\b(sets? up|dresses?|displays?|arranges?) (stock|shelves|displays?|window|merchandise|goods|stalls?)", "weight": -0.6, "why": "physical retail work"},
+    {"pattern": "\\b(cuts?|styles?|colours?|shampoos?|shaves?|trims?|massages?|waxes?|manicures?|applies? (make-up|cosmetics|treatments?|dressings?))", "weight": -0.9, "why": "hands-on personal service"},
+    {"pattern": "\\b(digs?|plants?|prunes?|mows?|harvests?|feeds?|milks?|shears?|herds?|sprays?|weeds?|fells?|excavates?|demolishes?|mixes? (concrete|mortar|cement))", "weight": -0.9, "why": "outdoor manual work"}
+  ]
+}

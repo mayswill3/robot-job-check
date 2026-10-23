@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# data pipeline
+data/.venv/
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/MANIFEST.json
+data/interim/*
+!data/interim/.gitkeep
+__pycache__/
+*.pyc
+
+# tests
+/test-results/
+/playwright-report/

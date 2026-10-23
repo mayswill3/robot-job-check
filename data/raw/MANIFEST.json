@@ -1,0 +1,68 @@
+{
+  "aps_employment": {
+    "file": "aps_soc2020_a25m26.xlsx",
+    "url": "https://www.ons.gov.uk/file?uri=/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/adhocs/35014digitoccupationalcodingsocbyagehighestqualificationsex4digitindustrysicanditl3regionukapril2025tomarch2026/4digitoccupationbyvariousfactorsa25m26.xlsx",
+    "landing": "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/adhocs/35014digitoccupationalcodingsocbyagehighestqualificationsex4digitindustrysicanditl3regionukapril2025tomarch2026",
+    "title": "4-digit occupational coding (SOC 2020) by age, highest qualification, sex, industry and ITL3 region, UK, April 2025 to March 2026",
+    "publisher": "Office for National Statistics (Annual Population Survey)",
+    "licence": "Open Government Licence v3.0",
+    "bytes": 1210535,
+    "sha256": "a178f594858166632f62b9ae1ed43d9fee5e3dabd1e8d06a5eb511a98987864d",
+    "downloaded_at": "2026-10-23T10:26:44+00:00"
+  },
+  "dfe_aioe": {
+    "file": "dfe_annex1.xlsx",
+    "url": "https://assets.publishing.service.gov.uk/media/65575c92046ed400148b9ad1/Annex_1_-_Impact_of_AI_on_UK_jobs_and_training_data_sources.xlsx",
+    "landing": "https://www.gov.uk/government/publications/the-impact-of-ai-on-uk-jobs-and-training",
+    "title": "The impact of AI on UK jobs and training, Annex 1: data sources (AI Occupational Exposure by SOC 2010)",
+    "publisher": "Department for Education, Unit for Future Skills (28 November 2023), applying Felten, Raj and Seamans' AIOE index",
+    "licence": "Open Government Licence v3.0",
+    "bytes": 462351,
+    "sha256": "148d95fae0052e83fe39efa0fb1d1405f5fb91dc0bd1cea97e3d9ab0422f0be9",
+    "downloaded_at": "2026-10-23T10:26:44+00:00"
+  },
+  "soc2010_soc2020_map": {
+    "file": "soc2010_to_soc2020.xlsx",
+    "url": "https://www.ons.gov.uk/file?uri=/methodology/classificationsandstandards/standardoccupationalclassificationsoc/soc2020/therelationshipbetweenstandardoccupationalclassification2010andstandardoccupationalclassification2020/soc2010soc2020relationshiptablesjuly2021.xlsx",
+    "landing": "https://www.ons.gov.uk/methodology/classificationsandstandards/standardoccupationalclassificationsoc/soc2020/therelationshipbetweenstandardoccupationalclassification2010andstandardoccupationalclassification2020",
+    "title": "The relationship between SOC 2010 and SOC 2020: unit group relationship tables (July 2021)",
+    "publisher": "Office for National Statistics",
+    "licence": "Open Government Licence v3.0",
+    "bytes": 116830,
+    "sha256": "a707e5f864572e6fc78b34b53615de5ac60f480d36f73463e4fbc39804f338d9",
+    "downloaded_at": "2026-10-23T10:26:44+00:00"
+  },
+  "ons_automation": {
+    "file": "automationreferencetables.xls",
+    "url": "https://www.ons.gov.uk/file?uri=/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/datasets/probabilityofautomationinengland/2011and2017/automationreferencetables.xls",
+    "landing": "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/datasets/probabilityofautomationinengland",
+    "title": "The probability of automation in England: 2011 and 2017, reference tables (Table 9, SOC 2010 4-digit)",
+    "publisher": "Office for National Statistics (25 March 2019)",
+    "licence": "Open Government Licence v3.0",
+    "bytes": 776192,
+    "sha256": "53a4801e7961459f4b91e366e84745763d821736078cae64c2cadacd132c4713",
+    "downloaded_at": "2026-10-23T10:26:44+00:00"
+  },
+  "soc2020_vol1": {
+    "file": "soc2020_vol1.xlsx",
+    "url": "https://www.ons.gov.uk/file?uri=/methodology/classificationsandstandards/standardoccupationalclassificationsoc/soc2020/soc2020volume1structureanddescriptionsofunitgroups/soc2020volume1structureanddescriptionofunitgroupsexcel20260827.xlsx",
+    "landing": "https://www.ons.gov.uk/methodology/classificationsandstandards/standardoccupationalclassificationsoc/soc2020/soc2020volume1structureanddescriptionsofunitgroups",
+    "title": "SOC 2020 Volume 1: structure and descriptions of unit groups (August 2026 revision)",
+    "publisher": "Office for National Statistics",
+    "licence": "Open Government Licence v3.0",
+    "bytes": 289135,
+    "sha256": "b9e3e464b877418ef1258ab4cb9e3b0ffe43ee9fd418d872068c2749b2337de3",
+    "downloaded_at": "2026-10-23T10:26:44+00:00"
+  },
+  "soc2020_vol2_index": {
+    "file": "soc2020_vol2_index.xlsx",
+    "url": "https://www.ons.gov.uk/file?uri=/methodology/classificationsandstandards/standardoccupationalclassificationsoc/soc2020/soc2020volume2codingrulesandconventions/soc2020volume2thecodingindexexcel20260827v2.xlsx",
+    "landing": "https://www.ons.gov.uk/methodology/classificationsandstandards/standardoccupationalclassificationsoc/soc2020/soc2020volume2codingrulesandconventions",
+    "title": "SOC 2020 Volume 2: the coding index (version 14, August 2026)",
+    "publisher": "Office for National Statistics",
+    "licence": "Open Government Licence v3.0",
+    "bytes": 3717451,
+    "sha256": "59d3ec71d0e9eef2a27d7d0f4720f5c4bd584b61dc6902cc33dd8ee2ced40b9a",
+    "downloaded_at": "2026-10-23T10:26:44+00:00"
+  }
+}
