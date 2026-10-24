@@ -58,7 +58,7 @@ facts file and dataset as the charts (see `Story.tsx`), so the words cannot drif
 | 7 | What the robots can already do | Count-up to 15%, the Eloundou et al. share of tasks an LLM alone could do significantly faster, with the 47 to 56% with-tooling figure. |
 | 8 | Poll | "Would you trust a robot with your money?" Real counts in Redis, one vote per reader per day. |
 | 9 | What happens next | Closing paragraphs: the rest of the cuts, the 2027 target, and a nudge to check again and share. |
-| 10 | Where the numbers come from | What the score is and is not, how verdicts are drawn, code mapping, task derivation, every Barclays fact with its primary source, every dataset. Theme toggle lives here. |
+| 10 | Where the numbers come from | One short paragraph on the score, the headcounts, the verdicts and the Barclays sources, then a collapsed "Full method and every source": code mapping, task derivation, every Barclays fact with its primary source, every dataset. Theme toggle lives here. |
 
 ## The data
 
