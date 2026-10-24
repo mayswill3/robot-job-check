@@ -7,7 +7,7 @@ keeps tabloid readers scrolling and playing with the data.
 the year, with AI and technology credited for the savings. The traditional version is a bank's numbers and a chief
 executive's quote. This version asks the reader one question first: what do *you* do?
 
-**Live:** https://robot-job-check.vercel.app
+**Live:** https://will-a-robot-take-your-job.vercel.app
 **Stack:** Next.js 16 (App Router, TypeScript), CSS Modules, D3 as React components, pandas pipeline, Vercel, Upstash Redis for the poll.
 
 ![Hero at 375px](docs/hero.png)

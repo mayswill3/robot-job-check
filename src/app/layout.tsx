@@ -6,7 +6,7 @@ import "./globals.css";
 const oswald = Oswald({ subsets: ["latin"], weight: ["500", "700"], variable: "--font-oswald", display: "swap" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://robot-job-check.vercel.app"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://will-a-robot-take-your-job.vercel.app"),
   title: "Will a robot take your job?",
   description:
     "Barclays is cutting 5,000 jobs and blames AI. Type in your job to see how exposed it is, how it ranks against every other job in Britain, and what the robots can already do.",

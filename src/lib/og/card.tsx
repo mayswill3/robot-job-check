@@ -109,7 +109,7 @@ export async function shareCard(job?: CardJob) {
 
         <div style={{ display: "flex", justifyContent: "space-between", borderTop: "6px solid #111", paddingTop: 16, fontSize: 28, color: "#5a5a5a", letterSpacing: 1 }}>
           <div style={{ display: "flex" }}>{job ? "CHECK YOUR OWN JOB" : "TYPE YOUR JOB. SLANG WORKS."}</div>
-          <div style={{ display: "flex" }}>robot-job-check.vercel.app</div>
+          <div style={{ display: "flex" }}>will-a-robot-take-your-job.vercel.app</div>
         </div>
       </div>
     ),
