@@ -34,7 +34,7 @@ export function ResultCard({ occ, label, isExample, all, thresholds, employmentP
   async function share() {
     const url =
       typeof window !== "undefined"
-        ? `${window.location.origin}${window.location.pathname}?job=${occ.soc}`
+        ? `${window.location.origin}/j/${occ.soc}`
         : "";
     const text = shareLine(ownName ? `${label}, or ${occ.title.toLowerCase()} to the ONS` : occ.title, occ.score, v.label, ctx.moreExposedThanPct, url);
     if (canShare) {

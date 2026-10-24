@@ -34,7 +34,7 @@ bills, both huge and both hard to make personal with public data in a day. Barcl
 | Quote from the chief executive. | The quote is one stop on a four-stop timeline the reader scrolls through after checking their own job, then a pull quote on which roles are going. |
 | A list of affected departments. | Ten bank jobs ranked by exposure, with the reader's own job highlighted if it is in the bank. |
 | A graphic, if any: a bar chart of cuts by year. | Every job in Britain as one dot, sized by headcount, with the reader's dot pulsing. Tap any dot to swap jobs. |
-| Reader reacts in the comments. | Reader votes in a live poll and copies a one-line result to the group chat. |
+| Reader reacts in the comments. | Reader votes in a live poll and shares a one-line result to the group chat. The link previews their own result: every job has its own page (`/j/2237`) with its own title and share card, 408 of each, all built statically. |
 | Read once. | Search again: nurse, brickie, sparky, the boss. Each search re-lights every chart below it. |
 
 The order of the page is the argument. Hook, then personal, then the story, then the bank, then Britain, then the
@@ -59,6 +59,14 @@ facts file and dataset as the charts (see `Story.tsx`), so the words cannot drif
 | 8 | Poll | "Would you trust a robot with your money?" Real counts in Redis, one vote per reader per day. |
 | 9 | What happens next | Closing paragraphs: the rest of the cuts, the 2027 target, and a nudge to check again and share. |
 | 10 | Where the numbers come from | One short paragraph on the score, the headcounts, the verdicts and the Barclays sources, then a collapsed "Full method and every source": code mapping, task derivation, every Barclays fact with its primary source, every dataset. Theme toggle lives here. |
+
+### Share cards
+
+Picking a job moves the page to `/j/<SOC code>`, a static page for that occupation with its own title
+("Nurse: 65 out of 100. Update your CV") and a 1200x630 share card drawn with `next/og` in the page's red,
+black and Oswald. The bare link gets a generic card. All 408 pages and cards are generated at build time, so a
+link pasted into WhatsApp or X previews the sender's result with no server work. The card code is in
+`src/lib/og/`, the routes in `src/app/j/[soc]/`.
 
 ## The data
 

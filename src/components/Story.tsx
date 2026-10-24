@@ -28,6 +28,8 @@ import { useInView } from "@/hooks/useInView";
 
 interface Props {
   example: Occupation;
+  /** Set on /j/[soc]: the page opens on this job with the reader's result showing. */
+  initial?: Occupation;
   all: SlimOccupation[];
   thresholds: Thresholds;
   employmentPeriod: string;
@@ -52,6 +54,7 @@ interface Selection {
 /** Client shell that owns one piece of state: the reader's job. Every chart reacts to it. */
 export function Story({
   example,
+  initial,
   all,
   thresholds,
   employmentPeriod,
@@ -63,18 +66,21 @@ export function Story({
   ukStat,
   facts,
 }: Props) {
-  const [sel, setSel] = useState<Selection>({ occ: example, label: "Bank clerk", picked: false });
+  const [sel, setSel] = useState<Selection>(
+    initial ? { occ: initial, label: displayLabel(initial), picked: true } : { occ: example, label: "Bank clerk", picked: false },
+  );
   const selected = sel.occ;
-  const cache = useRef<Record<string, Occupation>>({ [example.soc]: example });
+  const cache = useRef<Record<string, Occupation>>(
+    initial ? { [example.soc]: example, [initial.soc]: initial } : { [example.soc]: example },
+  );
 
   const onSelect = useCallback((o: Occupation, label: string) => {
     setSel({ occ: o, label, picked: true });
     cache.current[o.soc] = o;
-    // Keep the job in the URL so a shared link or a refresh lands on the same result.
+    // Keep the job in the URL so a shared link or a refresh lands on the same result,
+    // with its own title and share card.
     try {
-      const url = new URL(window.location.href);
-      url.searchParams.set("job", o.soc);
-      window.history.replaceState(null, "", url);
+      window.history.replaceState(null, "", `/j/${o.soc}`);
     } catch {}
   }, []);
 
@@ -101,8 +107,12 @@ export function Story({
     [fetchOcc, onSelect],
   );
 
-  // Deep link: /?job=2237 opens on that job, scrolled to the card.
+  // A shared link (/j/2237, or the older /?job=2237) opens scrolled to the result.
   useEffect(() => {
+    if (initial) {
+      document.getElementById("checker")?.scrollIntoView({ block: "start" });
+      return;
+    }
     const soc = new URLSearchParams(window.location.search).get("job");
     if (!soc || !/^\d{4}$/.test(soc)) return;
     let cancelled = false;
@@ -114,7 +124,7 @@ export function Story({
     return () => {
       cancelled = true;
     };
-  }, [fetchOcc]);
+  }, [fetchOcc, initial]);
 
   const { ref: swarmRef, inView: swarmInView } = useInView<HTMLDivElement>(
     "600px 0px 600px 0px",

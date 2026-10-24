@@ -21,7 +21,7 @@ test("loads, searches for nurse and shows the verdict", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 3, name: /Update your CV/ })).toBeVisible();
   await expect(page.getByRole("img", { name: /Exposure score 65 out of 100/ })).toBeVisible();
   // The job lands in the URL so the result can be shared.
-  await expect(page).toHaveURL(/job=2237/);
+  await expect(page).toHaveURL(/\/j\/2237$/);
   // And the card is on screen after the pick.
   const card = page.locator("article").first();
   await expect(card).toBeInViewport();
@@ -36,9 +36,22 @@ test("slang resolves and keyboard works", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 3, name: /Safe as houses/ })).toBeVisible();
 });
 
-test("a shared link opens on that job", async ({ page }) => {
+test("a shared link opens on that job with its own title and share card", async ({ page, request }) => {
+  await page.goto("/j/5313");
+  await expect(page).toHaveTitle(/Bricklayer: 15 out of 100/);
+  await expect(page.getByText("Your job:")).toContainText("Bricklayer");
+  await expect(page.getByRole("heading", { level: 3, name: /Safe as houses/ })).toBeVisible();
+  const og = await page.locator('meta[property="og:image"]').getAttribute("content");
+  expect(og).toMatch(/\/j\/5313\/opengraph-image/);
+  // The tag carries the production host; fetch the same path from the server under test.
+  const u = new URL(og!);
+  const img = await request.get(u.pathname + u.search);
+  expect(img.ok()).toBe(true);
+  expect(img.headers()["content-type"]).toContain("image/png");
+});
+
+test("the old query-string link still works", async ({ page }) => {
   await page.goto("/?job=5313");
-  await expect(page.getByText("Your job:")).toContainText("Bricklayers");
   await expect(page.getByRole("heading", { level: 3, name: /Safe as houses/ })).toBeVisible();
 });
 

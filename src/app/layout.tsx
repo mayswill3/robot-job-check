@@ -6,6 +6,7 @@ import "./globals.css";
 const oswald = Oswald({ subsets: ["latin"], weight: ["500", "700"], variable: "--font-oswald", display: "swap" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://robot-job-check.vercel.app"),
   title: "Will a robot take your job?",
   description:
     "Barclays is cutting 5,000 jobs and blames AI. Type in your job to see how exposed it is, how it ranks against every other job in Britain, and what the robots can already do.",
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
     description: "Barclays is cutting 5,000 jobs and blames AI. Check your own job against 408 UK occupations.",
     type: "article",
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {
